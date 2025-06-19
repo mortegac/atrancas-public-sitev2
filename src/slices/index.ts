@@ -3,6 +3,12 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  contact: dynamic(() => import("./Contact")),
+  faqs: dynamic(() => import("./Faqs")),
+  gallery: dynamic(() => import("./Gallery")),
   hero: dynamic(() => import("./Hero")),
+  ideas: dynamic(() => import("./Ideas")),
   image_cards: dynamic(() => import("./ImageCards")),
+  image_content: dynamic(() => import("./ImageContent")),
+  talk_whatsapp: dynamic(() => import("./TalkWhatsapp")),
 };

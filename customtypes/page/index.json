@@ -35,6 +35,24 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "talk_whatsapp": {
+              "type": "SharedSlice"
+            },
+            "ideas": {
+              "type": "SharedSlice"
+            },
+            "gallery": {
+              "type": "SharedSlice"
+            },
+            "image_content": {
+              "type": "SharedSlice"
+            },
+            "contact": {
+              "type": "SharedSlice"
+            },
+            "faqs": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             },
