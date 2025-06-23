@@ -54,7 +54,6 @@ const Hero: FC<HeroProps> = ({ slice }) => {
               field={calltoactionlink}
               className="rounded-sm bg-[#ed571c] px-5 py-3 font-medium text-white"
             >
-              {/* {slice.primary.buttonText || "Learn More"} */}
               Conoce nuestro catálogo
             </PrismicNextLink>
           )}
