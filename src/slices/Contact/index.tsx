@@ -1,110 +1,6 @@
-// import { FC } from "react";
-// import { Content } from "@prismicio/client";
-// import { SliceComponentProps } from "@prismicio/react";
-
-// /**
-//  * Props for `Contact`.
-//  */
-// export type ContactProps = SliceComponentProps<Content.ContactSlice>;
-
-// /**
-//  * Component for "Contact" Slices.
-//  */
-// const Contact: FC<ContactProps> = ({ slice }) => {
-//   return (
-//     <section
-//       data-slice-type={slice.slice_type}
-//       data-slice-variation={slice.variation}
-//     >
-//       Placeholder component for contact (variation: {slice.variation}) slices.
-//       <br />
-//       <strong>You can edit this slice directly in your code editor.</strong>
-//       {/**
-//        * 💡 Use Prismic MCP with your code editor
-//        *
-//        * Get AI-powered help to build your slice components — based on your actual model.
-//        *
-//        * ▶️ Setup:
-//        * 1. Add a new MCP Server in your code editor:
-//        *
-//        * {
-//        *   "mcpServers": {
-//        *     "Prismic MCP": {
-//        *       "command": "npx",
-//        *       "args": ["-y", "@prismicio/mcp-server"]
-//        *     }
-//        *   }
-//        * }
-//        *
-//        * 2. Select a model optimized for coding (e.g. Claude 3.7 Sonnet or similar)
-//        *
-//        * ✅ Then open your slice file and ask your code editor:
-//        *    "Code this slice"
-//        *
-//        * Your code editor reads your slice model and helps you code faster ⚡
-//        * 📚 Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-//        */}
-//     </section>
-//   );
-// };
-
-// export default Contact;
-
-
-// import { FC } from "react";
-// import { Content } from "@prismicio/client";
-// import { SliceComponentProps } from "@prismicio/react";
-
-// /**
-//  * Props for `Contact`.
-//  */
-// export type ContactProps = SliceComponentProps<Content.ContactSlice>;
-
-// /**
-//  * Component for "Contact" Slices.
-//  */
-// const Contact: FC<ContactProps> = ({ slice }) => {
-//   return (
-//     <section
-//       data-slice-type={slice.slice_type}
-//       data-slice-variation={slice.variation}
-//     >
-//       Placeholder component for talk_whatsapp (variation: {slice.variation})
-//       slices.
-//       <br />
-//       <strong>You can edit this slice directly in your code editor.</strong>
-//       {/**
-//        * 💡 Use Prismic MCP with your code editor
-//        *
-//        * Get AI-powered help to build your slice components — based on your actual model.
-//        *
-//        * ▶️ Setup:
-//        * 1. Add a new MCP Server in your code editor:
-//        *
-//        * {
-//        *   "mcpServers": {
-//        *     "Prismic MCP": {
-//        *       "command": "npx",
-//        *       "args": ["-y", "@prismicio/mcp-server"]
-//        *     }
-//        *   }
-//        * }
-//        *
-//        * 2. Select a model optimized for coding (e.g. Claude 3.7 Sonnet or similar)
-//        *
-//        * ✅ Then open your slice file and ask your code editor:
-//        *    "Code this slice"
-//        *
-//        * Your code editor reads your slice model and helps you code faster ⚡
-//        * 📚 Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-//        */}
-//     </section>
-//   );
-// };
-
-// export default Contact;
 "use client";
-import { FC } from "react";
+import { FC, useState } from "react";
+import Link from 'next/link';
 import { type Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
 import type { SliceComponentProps, JSXMapSerializer } from "@prismicio/react";
@@ -119,6 +15,11 @@ const components: JSXMapSerializer = {
       {children}
     </Heading>
   ),
+  heading2: ({ children }) => (
+    <Heading as="h2" size="lg" className="mb-4 mt-12 first:mt-0 last:mb-0">
+      {children}
+    </Heading>
+  ),
   strong: ({ children }) => (
     <strong className="font-semibold text-[#ed571c]">{children}</strong>
   ),
@@ -126,46 +27,24 @@ const components: JSXMapSerializer = {
 
 type ContactProps = SliceComponentProps<Content.ContactSlice>;
 
+
+
 const Contact: FC<ContactProps> = ({ slice }) => {
-  // const backgroundImage = slice.primary.backgroundImage;
+  const backgroundImage = slice?.primary?.backgroundimage;
   // const calltoactionlink = slice.primary.calltoactionlink;
 
   return (
-    <section className="relative bg-slate-900 text-white">
-      {/* {isFilled.image(backgroundImage) && (
+    <section className="relative bg-slate-900 text-white h-[850px]">
+      {isFilled.image(backgroundImage) && (
         <PrismicNextImage
           field={backgroundImage}
           alt=""
           fill={true}
           className="pointer-events-none select-none object-cover opacity-40"
         />
-      )} */}
-      <Bounded yPadding="base" className="relative">
-        <div className="mx-auto w-full max-w-[590px]">
-            <div className="text-center">
-            <h4 className='mb-5 font-satoshi font-bold -tracking-[1.6px] text-white dark:text-white lg:text-heading-2 xl:text-[32px] xl:leading-[1.12]'>
-            <PrismicRichText
-              field={slice.primary.title}
-              components={components}
-            />
-            </h4>
-              
-            <div className=' flex flex-row justify-center items-center'>
-
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 22L3.41152 16.8691C2.54422 15.3639 2.08876 13.6568 2.09099 11.9196C2.08095 6.44549 6.52644 2 11.99 2C14.6417 2 17.1315 3.02806 19.0062 4.9034C19.9303 5.82266 20.6627 6.91616 21.1611 8.12054C21.6595 9.32492 21.9139 10.6162 21.9096 11.9196C21.9096 17.3832 17.4641 21.8287 12 21.8287C10.3368 21.8287 8.71374 21.4151 7.26204 20.6192L2 22ZM7.49424 18.8349L7.79675 19.0162C9.06649 19.7676 10.5146 20.1644 11.99 20.1654C16.5264 20.1654 20.2263 16.4662 20.2263 11.9291C20.2263 9.73176 19.3696 7.65554 17.8168 6.1034C17.0533 5.33553 16.1453 4.72636 15.1453 4.31101C14.1452 3.89565 13.0728 3.68232 11.99 3.68331C7.44343 3.6839 3.74476 7.38316 3.74476 11.9202C3.74476 13.4724 4.17843 14.995 5.00502 16.3055L5.19645 16.618L4.35982 19.662L7.49483 18.8354L7.49424 18.8349Z" fill="white"/>
-                <path fillRule="evenodd" clipRule="evenodd" d="M9.52024 7.76662C9.33885 7.35303 9.13737 7.34298 8.96603 7.34298C8.81477 7.33294 8.65288 7.33294 8.48154 7.33294C8.32083 7.33294 8.04845 7.39321 7.81684 7.64549C7.58464 7.89719 6.95007 8.49217 6.95007 9.71167C6.95007 10.9318 7.83693 12.1111 7.95805 12.2724C8.07858 12.4337 9.67149 15.0139 12.192 16.0124C14.2883 16.839 14.712 16.6777 15.1657 16.6269C15.6189 16.5767 16.6275 16.0325 16.839 15.4476C17.0405 14.8733 17.0405 14.3693 16.9802 14.2682C16.9199 14.1678 16.748 14.1069 16.5064 13.9758C16.2541 13.8552 15.0446 13.2502 14.813 13.1693C14.5808 13.0889 14.4195 13.0487 14.2582 13.2904C14.0969 13.5427 13.623 14.0969 13.4724 14.2582C13.3306 14.4195 13.1799 14.4396 12.9377 14.3185C12.686 14.1979 11.8895 13.9356 10.9418 13.0889C10.2056 12.4331 9.71167 11.6171 9.56041 11.3755C9.41979 11.1232 9.54032 10.992 9.67149 10.8709C9.78257 10.7604 9.92378 10.579 10.0449 10.4378C10.1654 10.296 10.2056 10.1855 10.2966 10.0242C10.377 9.86292 10.3368 9.71167 10.2765 9.59114C10.2157 9.48006 9.74239 8.25997 9.52024 7.76603V7.76662Z" fill="white"/>
-              </svg>
-              {/* <a href={slice?.primary?.calltoactionlink?.text} target="_blank" rel="noopener noreferrer nofollow" >
-                <h2 className=' ml-4 mb-5 font-satoshi text-heading-4 font-bold -tracking-[1.6px] text-white dark:text-white lg:text-heading-2 xl:text-[48px] xl:leading-[1.12]'>
-                {slice.primary.phone}
-                </h2>
-              </a>   */}
-                
-              </div>
-            </div>
-          </div>
-        {/* <div className="grid justify-items-start gap-8">
+      )}
+      <Bounded yPadding="lg" className="relative h-full flex items-center">
+        <div className="grid justify-items-start gap-8">
           <div className="max-w-2xl text-left">
             <PrismicRichText
               field={slice.primary.title}
@@ -173,26 +52,256 @@ const Contact: FC<ContactProps> = ({ slice }) => {
             />
           </div>
           <div className="max-w-2xl text-left">
-            <span>{slice.primary.phone}</span>
             <PrismicRichText
               field={slice.primary.description}
               components={components}
             />
           </div>
-          {isFilled.link(slice.primary.calltoactionlink) && (
-            <PrismicNextLink
-            field={calltoactionlink}
-            className="rounded-sm bg-[#ed571c] px-5 py-3 font-medium text-white"
+          
+          <div
+              key="contact-form"
+              className='max-w-[600px] w-full bg-white border border-[rgba(0,17,51,0.15)] rounded-[24px] p-[48px] flex flex-col justify-start items-start relative'
             >
-            Conoce nuestro catálogo
+            <div className="space-y-6"></div>
+            
+          <form  className="space-y-4  w-full">
+            {/* :(<form onSubmit={handleSubmit(onSubmit)} className="space-y-4  w-full"> */}
+                <div>
+                <label htmlFor="name" className="block text-xl font-light text-gray-700 ">
+                    {slice?.primary?.name || "name"}
+                  </label>
+                  <input
+                    // {...register('name')}
+                    type="name"
+                    id="name"
+                    className="mt-1 mb-12 block w-full h-[48px] border border-[rgba(0,17,51,0.15)] rounded-[6px] p-[13px] text-[rgba(0,17,51,0.8)]  text-[14px] transition-all duration-400 outline-none shadow-none focus:border-primary focus:ring-primary "
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-xl font-light text-gray-700 ">
+                    {slice?.primary?.email || "Email"}
+                  </label>
+                  <input
+                    // {...register('email')}
+                    type="email"
+                    id="email"
+                    className="mt-1 mb-12 block w-full h-[48px] border border-[rgba(0,17,51,0.15)] rounded-[6px] p-[13px] text-[rgba(0,17,51,0.8)]  text-[14px] transition-all duration-400 outline-none shadow-none focus:border-primary focus:ring-primary "
+                  />
+                  {/* {errors.email && (
+                    <p className="-mt-10 text-sm text-red-300">{errors.email.message}</p>
+                  )} */}
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-xl font-light text-gray-700 ">
+                    {slice?.primary?.phone || "phone"}
+                  </label>
+                  <input
+                    // {...register('phone')}
+                    type="phone"
+                    id="phone"
+                    className="mt-1 mb-12 block w-full h-[48px] border border-[rgba(0,17,51,0.15)] rounded-[6px] p-[13px] text-[rgba(0,17,51,0.8)]  text-[14px] transition-all duration-400 outline-none shadow-none focus:border-primary focus:ring-primary "
+                  />
+                  {/* {errors.email && (
+                    <p className="-mt-10 text-sm text-red-300">{errors.email.message}</p>
+                  )} */}
+                </div>
+
+                <div>
+                  <label htmlFor="mensaje" className="block text-xl font-light text-gray-700 ">
+                  
+                  {slice?.primary?.name || "How can we help you?"}
+                  </label>
+                  <textarea
+                    // {...register('mensaje')}
+                    id="mensaje"
+                    rows={4}
+                    className="mt-1 mb-12 block w-full border border-[rgba(0,17,51,0.15)] rounded-[6px] p-[13px] text-[rgba(0,17,51,0.8)]  text-[14px] transition-all duration-400 outline-none shadow-none focus:border-primary focus:ring-primary "
+                  />
+                  {/* {errors.mensaje && (
+                    <p className="-mt-10 text-sm text-red-300">{errors.mensaje.message}</p>
+                  )} */}
+                </div>
+
+                <div className='flex justify-center items-center flex-col'>
+                  <button
+                    type="submit"
+                    // disabled={isSubmitting}
+                    className=" w-sm rounded-md bg-[#ed571c] px-4 py-2 text-white hover:bg-primary/95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50"
+                  >
+                    {slice?.primary?.calltoactiontext || "Send"}
+                    {/* {isSubmitting ? 'Sending...' : 'Sent'} */}
+                  </button>
+                  
+                </div>
+              </form>
+                </div>
+          
+          {/* <pre>{JSON.stringify(slice.primary, null, 2 )}</pre> */}
+          {/* {isFilled.link(calltoactionlink) && (
+            <PrismicNextLink
+              field={calltoactionlink}
+              className="rounded-sm bg-[#ed571c] px-12 py-6 font-medium text-white text-2xl"
+            >
+              Conoce nuestro catálogo
             </PrismicNextLink>
-            )}
-            </div> */}
-            <pre>{JSON.stringify(slice.primary, null, 2 )}</pre>
+          )} */}
+        </div>
       </Bounded>
     </section>
   );
 };
 
 export default Contact;
+// const Contact: FC<ContactProps> = ({ slice }) => {
+//   // const backgroundImage = slice.primary.backgroundImage;
+//   // const calltoactionlink = slice.primary.calltoactionlink;
+//   const [isSentEmail, setIsSentEmail] = useState({
+//     sentEmail: false,
+//     isFailure: false,
+//     title: "Page Not Found 😭",
+//     text: "It looks like we can't find the page you're looking for.",
+//   });
+  
+//   return (
+//     <section className="relative bg-black text-white">
+   
+//       <Bounded yPadding="base" className="relative">
+//       <section
+//       id='features'
+//       className='relative z-1 overflow-hidden'
+//     >
+//       <div className='relative z-1 mx-auto w-full max-w-[1170px] px-4 sm:px-8 xl:px-0'>
+            
+//         <div className='flex justify-center items-center flex-col'>
+//           <div
+//               key="contact-header"
+//               className='max-w-[600px] w-full  p-[26px] flex flex-col justify-start items-start relative'
+//             >
+//           <div className="max-w-2xl text-left mb-10">
+//             <PrismicRichText
+//               field={slice.primary.title}
+//               components={components}
+//             />
+//           </div>
+//           <div className="max-w-2xl text-left text-gray-300 ">
+//             <PrismicRichText
+//               field={slice.primary.description}
+//               components={components}
+//             />
+//           </div>
+//           </div>
+       
+//             <div
+//               key="contact-form"
+//               className='max-w-[600px] w-full bg-white border border-[rgba(0,17,51,0.15)] rounded-[24px] p-[48px] flex flex-col justify-start items-start relative'
+//             >
+//                <div className="space-y-6">
+           
+//           </div>
+              
+//             { isSentEmail.sentEmail ? (
+//               <>
+//                 <h4 className='mb-5 font-satoshi font-bold  text-slate-700  text-[32px] leading-10'>
+//                 {isSentEmail.title}
+//                 </h4>
+//                 <p className='font-satoshi  text-slate-700 text-[20px] mb-8  leading-6'> {isSentEmail.text}</p>
+
+//                 <Link 
+//                     href={"/"}
+//                     passHref
+//                     prefetch
+//                     rel="noopener noreferrer nofollow" 
+//                     className='inline-flex items-center gap-4 rounded-full bg-black py-2 pl-7.5 pr-2 font-satoshi font-medium text-white hover:bg-opacity-90 dark:bg-primary'
+//                   >{"Back to home"}
+//                 </Link>
+//               </>
+//             )
+//             :(<form  className="space-y-4  w-full">
+//             {/* :(<form onSubmit={handleSubmit(onSubmit)} className="space-y-4  w-full"> */}
+//                 <div>
+//                 <label htmlFor="name" className="block text-xl font-light text-gray-700 ">
+//                     {slice?.primary?.name || "name"}
+//                   </label>
+//                   <input
+//                     // {...register('name')}
+//                     type="name"
+//                     id="name"
+//                     className="mt-1 mb-12 block w-full h-[48px] border border-[rgba(0,17,51,0.15)] rounded-[6px] p-[13px] text-[rgba(0,17,51,0.8)]  text-[14px] transition-all duration-400 outline-none shadow-none focus:border-primary focus:ring-primary "
+//                   />
+//                 </div>
+
+//                 <div>
+//                   <label htmlFor="email" className="block text-xl font-light text-gray-700 ">
+//                     {slice?.primary?.email || "Email"}
+//                   </label>
+//                   <input
+//                     // {...register('email')}
+//                     type="email"
+//                     id="email"
+//                     className="mt-1 mb-12 block w-full h-[48px] border border-[rgba(0,17,51,0.15)] rounded-[6px] p-[13px] text-[rgba(0,17,51,0.8)]  text-[14px] transition-all duration-400 outline-none shadow-none focus:border-primary focus:ring-primary "
+//                   />
+//                   {/* {errors.email && (
+//                     <p className="-mt-10 text-sm text-red-300">{errors.email.message}</p>
+//                   )} */}
+//                 </div>
+//                 <div>
+//                   <label htmlFor="phone" className="block text-xl font-light text-gray-700 ">
+//                     {slice?.primary?.phone || "phone"}
+//                   </label>
+//                   <input
+//                     // {...register('phone')}
+//                     type="phone"
+//                     id="phone"
+//                     className="mt-1 mb-12 block w-full h-[48px] border border-[rgba(0,17,51,0.15)] rounded-[6px] p-[13px] text-[rgba(0,17,51,0.8)]  text-[14px] transition-all duration-400 outline-none shadow-none focus:border-primary focus:ring-primary "
+//                   />
+//                   {/* {errors.email && (
+//                     <p className="-mt-10 text-sm text-red-300">{errors.email.message}</p>
+//                   )} */}
+//                 </div>
+
+//                 <div>
+//                   <label htmlFor="mensaje" className="block text-xl font-light text-gray-700 ">
+                  
+//                   {slice?.primary?.name || "How can we help you?"}
+//                   </label>
+//                   <textarea
+//                     // {...register('mensaje')}
+//                     id="mensaje"
+//                     rows={4}
+//                     className="mt-1 mb-12 block w-full border border-[rgba(0,17,51,0.15)] rounded-[6px] p-[13px] text-[rgba(0,17,51,0.8)]  text-[14px] transition-all duration-400 outline-none shadow-none focus:border-primary focus:ring-primary "
+//                   />
+//                   {/* {errors.mensaje && (
+//                     <p className="-mt-10 text-sm text-red-300">{errors.mensaje.message}</p>
+//                   )} */}
+//                 </div>
+
+//                 <div className='flex justify-center items-center flex-col'>
+//                   <button
+//                     type="submit"
+//                     // disabled={isSubmitting}
+//                     className=" w-sm rounded-md bg-[#ed571c] px-4 py-2 text-white hover:bg-primary/95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50"
+//                   >
+//                     {slice?.primary?.calltoactiontext || "Send"}
+//                     {/* {isSubmitting ? 'Sending...' : 'Sent'} */}
+//                   </button>
+                  
+//                 </div>
+//               </form>
+//             )}
+//             </div>
+      
+//         </div>
+        
+
+//       </div>
+//     </section>
+       
+//             {/* <pre>{JSON.stringify(slice.primary, null, 2 )}</pre> */}
+//       </Bounded>
+//     </section>
+//   );
+// };
+
+// export default Contact;
 

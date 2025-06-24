@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | MiniGallerySlice
   | TalkWhatsappSlice
   | IdeasSlice
   | GallerySlice
@@ -252,6 +253,16 @@ export interface ContactSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   calltoactiontext: prismic.KeyTextField;
+
+  /**
+   * backgroundImage field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.backgroundimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  backgroundimage: prismic.ImageField<never>;
 }
 
 /**
@@ -795,6 +806,124 @@ export type ImageContentSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *MiniGallery → Default → Primary → images*
+ */
+export interface MiniGallerySliceDefaultPrimaryImagesItem {
+  /**
+   * image field in *MiniGallery → Default → Primary → images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mini_gallery.default.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<"thumbail">;
+
+  /**
+   * description field in *MiniGallery → Default → Primary → images*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mini_gallery.default.primary.images[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * calltoactionlink field in *MiniGallery → Default → Primary → images*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mini_gallery.default.primary.images[].calltoactionlink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  calltoactionlink: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * title field in *MiniGallery → Default → Primary → images*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mini_gallery.default.primary.images[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *MiniGallery → Default → Primary*
+ */
+export interface MiniGallerySliceDefaultPrimary {
+  /**
+   * title field in *MiniGallery → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mini_gallery.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *MiniGallery → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mini_gallery.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * images field in *MiniGallery → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mini_gallery.default.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<
+    Simplify<MiniGallerySliceDefaultPrimaryImagesItem>
+  >;
+}
+
+/**
+ * Default variation for MiniGallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MiniGallerySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MiniGallerySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MiniGallery*
+ */
+type MiniGallerySliceVariation = MiniGallerySliceDefault;
+
+/**
+ * MiniGallery Shared Slice
+ *
+ * - **API ID**: `mini_gallery`
+ * - **Description**: MiniGallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MiniGallerySlice = prismic.SharedSlice<
+  "mini_gallery",
+  MiniGallerySliceVariation
+>;
+
+/**
  * Primary content in *TalkWhatsapp → Default → Primary*
  */
 export interface TalkWhatsappSliceDefaultPrimary {
@@ -926,6 +1055,11 @@ declare module "@prismicio/client" {
       ImageContentSliceDefaultPrimary,
       ImageContentSliceVariation,
       ImageContentSliceDefault,
+      MiniGallerySlice,
+      MiniGallerySliceDefaultPrimaryImagesItem,
+      MiniGallerySliceDefaultPrimary,
+      MiniGallerySliceVariation,
+      MiniGallerySliceDefault,
       TalkWhatsappSlice,
       TalkWhatsappSliceDefaultPrimary,
       TalkWhatsappSliceVariation,

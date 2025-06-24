@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "mini_gallery": {
+              "type": "SharedSlice"
+            },
             "talk_whatsapp": {
               "type": "SharedSlice"
             },

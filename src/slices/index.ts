@@ -10,5 +10,6 @@ export const components = {
   ideas: dynamic(() => import("./Ideas")),
   image_cards: dynamic(() => import("./ImageCards")),
   image_content: dynamic(() => import("./ImageContent")),
+  mini_gallery: dynamic(() => import("./MiniGallery")),
   talk_whatsapp: dynamic(() => import("./TalkWhatsapp")),
 };

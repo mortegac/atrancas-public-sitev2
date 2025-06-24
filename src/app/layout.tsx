@@ -9,6 +9,7 @@ import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
 
 import HeaderWrapper from '@/components/Header/HeaderWrapper';
+import Footer from '@/components/Footer';
 // import { HeaderWrapper } from '@/components/Header/HeaderWrapper';
 
 
@@ -31,6 +32,7 @@ export default async function RootLayout({
         {/* {children} */}
         <div className='isolate'>{children}</div>
         <PrismicPreview repositoryName={repositoryName} />
+        <Footer/>          
       </body>
     </html>
   );

@@ -1,0 +1,129 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"images": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
+										"width": 4160,
+										"height": 3120
+									},
+									"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
+									"width": 4160,
+									"height": 3120,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "directly",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {
+										"thumbail": {
+											"origin": {
+												"id": "thumbail",
+												"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+												"width": 4000,
+												"height": 4000
+											},
+											"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04?rect=0%2C848%2C4000%2C2303&w=330&h=190",
+											"width": 330,
+											"height": 190,
+											"edit": {
+												"zoom": 1,
+												"crop": {
+													"x": 0,
+													"y": 848
+												},
+												"background": "transparent"
+											},
+											"alt": "sugar",
+											"credits": null
+										}
+									}
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Voluptate sint irure velit. Ipsum elit proident et."
+											}
+										}
+									]
+								}
+							],
+							[
+								"calltoactionlink",
+								{
+									"key": "ca1836fd-7bee-4938-af6f-d2fdb98b0dc0",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "near"
+									}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Aliquip mollit nisi ea quis elit quis qui et irure laboris laborum reprehenderit laborum excepteur excepteur. Cupidatat incididunt et incididunt quis. Irure fugiat eu id laboris dolore veniam fugiat do do irure."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Dolor officia exercitation veniam ex fugiat ullamco velit enim cillum do."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing ex adipisicing id veniam eiusmod minim Lorem laborum laborum magna proident nisi."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

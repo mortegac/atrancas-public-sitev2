@@ -57,6 +57,14 @@
             "label": "calltoactiontext",
             "placeholder": ""
           }
+        },
+        "backgroundimage": {
+          "type": "Image",
+          "config": {
+            "label": "backgroundImage",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}

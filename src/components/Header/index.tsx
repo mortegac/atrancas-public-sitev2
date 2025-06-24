@@ -53,8 +53,8 @@ const Header = ({ settings, navigation }: HeaderProps) => {
   return (
     <>
       <header
-        className={`fixed left-0 top-0 z-999 w-full transition-all duration-300 ease-in-out bg-[rgba(1,1,1,0.62)] ${
-          stickyMenu ? 'py-4 shadow xl:py-0' : 'py-7 xl:py-0'
+        className={`fixed left-0 top-0 z-999 w-full transition-all duration-300 ease-in-out ${
+          stickyMenu ? 'bg-black py-3.5 px-0 shadow xl:py-3.5 xl:px-0' : 'bg-[rgba(1,1,1,0.62)] py-7 xl:py-0'
         }`}
       >
         <div className='relative mx-auto max-w-[1170px] items-center justify-between px-4 sm:px-8 xl:flex xl:px-0'>
