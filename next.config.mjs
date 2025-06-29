@@ -27,8 +27,12 @@ const nextConfig = {
         hostname: 'images.prismic.io',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.prismic.io',
+        pathname: '/atrancasv2/**',
+      },
     ],
-    domains: ['images.prismic.io'],
   },
   async headers() {
     return [

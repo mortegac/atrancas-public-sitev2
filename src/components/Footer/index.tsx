@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import logoLight from '@/../public/images/logo/logo_las_trancas.svg';
-
+ 
 // import { menuData } from '../Header/menuData';
 // import { usePathname } from 'next/navigation';
 
@@ -58,7 +58,7 @@ const Footer = () => {
                     aria-label='manuelo.dev'
                     className='text-slate-700 duration-200 ease-out hover:text-white'
                   >
-                    asasaas
+                    © Atrancas, desarrollado por manuelo.dev
                   </a>
                 {/* ),
               })} */}
@@ -66,8 +66,8 @@ const Footer = () => {
             <ul className='mt-11 flex items-center gap-2'>
                             <li className='text-slate-100'>
                 <a
-                  href='https://www.instagram.com/miniswimmer.chile'
-                  aria-label='Instagram Chile'
+                  href='https://www.instagram.com/las.trancas'
+                  aria-label='Instagram las.trancas'
                    target="_blank"
                    rel="nofollow"
                   className='text-slate-100 flex duration-200 ease-out hover:text-white'
@@ -88,8 +88,8 @@ const Footer = () => {
 
               <li>
               <a
-                  href='https://www.instagram.com/miniswimmer.us'
-                  aria-label='Instagram Estados Unidos'
+                  href='https://www.instagram.com/delahoguera'
+                  aria-label='Instagram delahoguera'
                    target="_blank"
                    rel="nofollow"
                   className='text-slate-100 flex duration-200 ease-out hover:text-white'
@@ -107,7 +107,7 @@ const Footer = () => {
 
                 </a>
               </li>
-              <li>
+              {/* <li>
               <a
                   href='https://www.linkedin.com/company/105056316/'
                   aria-label='Linkedin Miniswimmer'
@@ -124,11 +124,11 @@ const Footer = () => {
                   </svg>
 
                 </a>
-              </li>
+              </li> */}
               <li>
               <a
-                  href='https://www.facebook.com/miniswimmer.academy.academy'
-                  aria-label='Facebook Miniswimmer'
+                  href='https://www.facebook.com/lastrancasambientacioncampoestre'
+                  aria-label='Facebook lastrancasambientacioncampoestre'
                    target="_blank"
                    rel="nofollow"
                   className='text-slate-100 flex duration-200 ease-out hover:text-white'
@@ -273,7 +273,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a className='text-slate-100 duration-200 ease-out hover:text-white' 
-                  href='https://www.delahoguera.cl/'>
+                  href='https://www.delahoguera.cl/libro/'>
                   Libro
                   </a>
                 </li>

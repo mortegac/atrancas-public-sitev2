@@ -4,6 +4,7 @@ import clsx from "clsx";
 type BoundedProps = {
   as?: "div" | "section" | "header";
   yPadding?: "sm" | "base" | "lg";
+  xPadding?: "default" | "none";
   collapsible?: boolean;
   className?: string;
   children?: ReactNode;
@@ -12,6 +13,7 @@ type BoundedProps = {
 export function Bounded({
   as: Comp = "div",
   yPadding = "base",
+  xPadding = "default",
   collapsible = true,
   className,
   children,
@@ -20,14 +22,19 @@ export function Bounded({
     <Comp
       data-collapsible={collapsible}
       className={clsx(
-        "px-6",
+        xPadding === "default" && "px-6",
+        xPadding === "none" && "px-0",
         yPadding === "sm" && "py-8 md:py-10",
         yPadding === "base" && "py-20 md:py-28",
         yPadding === "lg" && "py-32 md:py-48",
         className,
       )}
     >
-      <div className="mx-auto max-w-[1170px] w-full px-16">{children}</div>
+      <div className={clsx(
+        "mx-auto max-w-[1170px] w-full",
+        xPadding === "default" && "px-16",
+        xPadding === "none" && "px-0"
+      )}>{children}</div>
     </Comp>
   );
 }

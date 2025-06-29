@@ -21,7 +21,7 @@ const components: JSXMapSerializer = {
     </span>
   ),
   strong: ({ children }) => (
-    <strong className="font-semibold text-[#ed571c]">{children}</strong>
+    <strong className="font-semibold text-[#c39f77]">{children}</strong>
   ),
 };
 

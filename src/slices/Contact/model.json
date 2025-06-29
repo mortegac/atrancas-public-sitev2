@@ -65,6 +65,13 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "message": {
+          "type": "Text",
+          "config": {
+            "label": "message",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

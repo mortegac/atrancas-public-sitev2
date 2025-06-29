@@ -21,7 +21,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   strong: ({ children }) => (
-    <strong className="font-semibold text-[#ed571c]">{children}</strong>
+    <strong className="font-semibold text-[#c39f77]">{children}</strong>
   ),
 };
 
@@ -34,7 +34,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   // const calltoactionlink = slice.primary.calltoactionlink;
 
   return (
-    <section className="relative bg-slate-900 text-white h-[850px]">
+    <section className="relative bg-[#212121] text-white h-[850px]">
       {isFilled.image(backgroundImage) && (
         <PrismicNextImage
           field={backgroundImage}
@@ -110,7 +110,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
                 <div>
                   <label htmlFor="mensaje" className="block text-xl font-light text-gray-700 ">
                   
-                  {slice?.primary?.name || "How can we help you?"}
+                  {slice?.primary?.message || "How can we help you?"}
                   </label>
                   <textarea
                     // {...register('mensaje')}
@@ -127,7 +127,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
                   <button
                     type="submit"
                     // disabled={isSubmitting}
-                    className=" w-sm rounded-md bg-[#ed571c] px-4 py-2 text-white hover:bg-primary/95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50"
+                    className=" w-sm rounded-md bg-[#c39f77] px-4 py-2 text-white hover:bg-primary/95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50"
                   >
                     {slice?.primary?.calltoactiontext || "Send"}
                     {/* {isSubmitting ? 'Sending...' : 'Sent'} */}
@@ -141,7 +141,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
           {/* {isFilled.link(calltoactionlink) && (
             <PrismicNextLink
               field={calltoactionlink}
-              className="rounded-sm bg-[#ed571c] px-12 py-6 font-medium text-white text-2xl"
+              className="rounded-sm bg-[#c39f77] px-12 py-6 font-medium text-white text-2xl"
             >
               Conoce nuestro catálogo
             </PrismicNextLink>
@@ -280,7 +280,7 @@ export default Contact;
 //                   <button
 //                     type="submit"
 //                     // disabled={isSubmitting}
-//                     className=" w-sm rounded-md bg-[#ed571c] px-4 py-2 text-white hover:bg-primary/95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50"
+//                     className=" w-sm rounded-md bg-[#c39f77] px-4 py-2 text-white hover:bg-primary/95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50"
 //                   >
 //                     {slice?.primary?.calltoactiontext || "Send"}
 //                     {/* {isSubmitting ? 'Sending...' : 'Sent'} */}

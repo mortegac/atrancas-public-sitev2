@@ -67,7 +67,7 @@ const components: JSXMapSerializer = {
     </Heading>
   ),
   strong: ({ children }) => (
-    <strong className="font-semibold text-[#ed571c]">{children}</strong>
+    <strong className="font-semibold text-[#c39f77]">{children}</strong>
   ),
 };
 
@@ -130,7 +130,7 @@ const TalkWhatsapp: FC<TalkWhatsappProps> = ({ slice }) => {
           {isFilled.link(slice.primary.calltoactionlink) && (
             <PrismicNextLink
               field={calltoactionlink}
-              className="rounded-sm bg-[#ed571c] px-5 py-3 font-medium text-white"
+              className="rounded-sm bg-[#c39f77] px-5 py-3 font-medium text-white"
             >
               Conoce nuestro catálogo
             </PrismicNextLink>

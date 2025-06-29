@@ -263,6 +263,16 @@ export interface ContactSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   backgroundimage: prismic.ImageField<never>;
+
+  /**
+   * message field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.message
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  message: prismic.KeyTextField;
 }
 
 /**
@@ -533,9 +543,83 @@ export type HeroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Hero → TextToRight → Primary*
+ */
+export interface HeroSliceTextToRightPrimary {
+  /**
+   * title field in *Hero → TextToRight → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Titulo
+   * - **API ID Path**: hero.textToRight.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *Hero → TextToRight → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.textToRight.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * backgroundImage field in *Hero → TextToRight → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.textToRight.primary.backgroundImage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  backgroundImage: prismic.ImageField<never>;
+
+  /**
+   * callToActionLink field in *Hero → TextToRight → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.textToRight.primary.calltoactionlink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  calltoactionlink: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * callToActionText field in *Hero → TextToRight → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.textToRight.primary.calltoactiontext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  calltoactiontext: prismic.KeyTextField;
+}
+
+/**
+ * TextToRight variation for Hero Slice
+ *
+ * - **API ID**: `textToRight`
+ * - **Description**: Hero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceTextToRight = prismic.SharedSliceVariation<
+  "textToRight",
+  Simplify<HeroSliceTextToRightPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation = HeroSliceDefault;
+type HeroSliceVariation = HeroSliceDefault | HeroSliceTextToRight;
 
 /**
  * Hero Shared Slice
@@ -1040,8 +1124,10 @@ declare module "@prismicio/client" {
       GallerySliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
+      HeroSliceTextToRightPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HeroSliceTextToRight,
       IdeasSlice,
       IdeasSliceDefaultPrimary,
       IdeasSliceVariation,
