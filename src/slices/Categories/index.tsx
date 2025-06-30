@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { PrismicNextLink } from "@prismicio/next";
 
 import Image from 'next/image';
 import { PrismicRichText,  } from "@/components/PrismicRichText";
@@ -40,11 +41,18 @@ const Categories: FC<CategoriesProps> = ({ slice }) => {
           </div>
         </div>
         <div className="mx-auto w-full">
-          {/* <pre>{JSON.stringify(slice.primary , null, 2)}</pre> */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-20">
                   
             { Array.isArray(categories) && categories.map((item, index)=>(
-               <div className='overflow-hidden rounded-2xl cursor-pointer flex justify-center items-center flex-col border p-16'>
+               <PrismicNextLink 
+               field={item.calltoactionlink}
+              //  onClick={() => setNavbarOpen(false)}
+               rel={'noopener noreferrer'}
+               className="cursor-pointer "
+              >
+             
+              <div className='overflow-hidden rounded-2xl  flex justify-center items-center flex-col border p-16'>
+                {/* <pre>{JSON.stringify(item.calltoactionlink , null, 2)}</pre> */}
                <div 
                key={`${index}-CATEGORIES-LIST`} 
                  className='transition-transform duration-300 ease-in-out hover:scale-110'
@@ -70,6 +78,7 @@ const Categories: FC<CategoriesProps> = ({ slice }) => {
                 
                </div>
              </div>
+             </PrismicNextLink>
             ))}
           </div>
         </div>

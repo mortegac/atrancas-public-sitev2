@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | CategorieDetailSlice
   | CategoriesSlice
   | MiniGallerySlice
   | TalkWhatsappSlice
@@ -190,6 +191,128 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
+
+/**
+ * Item in *CategorieDetail → Default → Primary → images*
+ */
+export interface CategorieDetailSliceDefaultPrimaryImagesItem {
+  /**
+   * codeProduct field in *CategorieDetail → Default → Primary → images*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categorie_detail.default.primary.images[].codeproduct
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  codeproduct: prismic.KeyTextField;
+
+  /**
+   * title field in *CategorieDetail → Default → Primary → images*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categorie_detail.default.primary.images[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *CategorieDetail → Default → Primary → images*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categorie_detail.default.primary.images[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * image field in *CategorieDetail → Default → Primary → images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categorie_detail.default.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * prices field in *CategorieDetail → Default → Primary → images*
+   *
+   * - **Field Type**: Table
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categorie_detail.default.primary.images[].prices
+   * - **Documentation**: https://prismic.io/docs/field#table
+   */
+  prices: prismic.TableField;
+}
+
+/**
+ * Primary content in *CategorieDetail → Default → Primary*
+ */
+export interface CategorieDetailSliceDefaultPrimary {
+  /**
+   * title field in *CategorieDetail → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categorie_detail.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *CategorieDetail → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categorie_detail.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * images field in *CategorieDetail → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categorie_detail.default.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<
+    Simplify<CategorieDetailSliceDefaultPrimaryImagesItem>
+  >;
+}
+
+/**
+ * Default variation for CategorieDetail Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CategorieDetailSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CategorieDetailSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CategorieDetail*
+ */
+type CategorieDetailSliceVariation = CategorieDetailSliceDefault;
+
+/**
+ * CategorieDetail Shared Slice
+ *
+ * - **API ID**: `categorie_detail`
+ * - **Description**: CategorieDetail
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CategorieDetailSlice = prismic.SharedSlice<
+  "categorie_detail",
+  CategorieDetailSliceVariation
+>;
 
 /**
  * Item in *Categories → Default → Primary → listCategories*
@@ -1237,6 +1360,11 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      CategorieDetailSlice,
+      CategorieDetailSliceDefaultPrimaryImagesItem,
+      CategorieDetailSliceDefaultPrimary,
+      CategorieDetailSliceVariation,
+      CategorieDetailSliceDefault,
       CategoriesSlice,
       CategoriesSliceDefaultPrimaryListcategoriesItem,
       CategoriesSliceDefaultPrimary,

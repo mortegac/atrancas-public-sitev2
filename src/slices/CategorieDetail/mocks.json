@@ -1,0 +1,183 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Esse non commodo quis magna quis aliquip pariatur est deserunt dolore incididunt dolor sunt. Esse ad nostrud nulla. Deserunt occaecat in proident elit qui ad culpa ut tempor id quis."
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliqua in id irure officia incididunt. Cupidatat culpa mollit consequat fugiat do. Veniam ut magna ea exercitation in nulla officia Lorem nisi reprehenderit ipsum veniam excepteur est aliquip."
+						}
+					}
+				]
+			},
+			"images": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Aute laboris do anim enim. Cillum nulla occaecat nostrud in reprehenderit voluptate magna."
+											}
+										}
+									]
+								}
+							],
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
+										"width": 4380,
+										"height": 2895
+									},
+									"url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
+									"width": 4380,
+									"height": 2895,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "school",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Sint exercitation eiusmod ad in eu. Amet mollit laborum anim adipisicing do do enim deserunt mollit. Adipisicing esse exercitation nostrud laboris adipisicing commodo do nisi irure mollit reprehenderit commodo aliquip."
+											}
+										}
+									]
+								}
+							],
+							[
+								"codeproduct",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "seven",
+									"type": "Text"
+								}
+							],
+							[
+								"prices",
+								{
+									"__TYPE__": "TableContent",
+									"content": [
+										{
+											"key": "6c27d7fb-5549-46ea-ac36-89654b5cfd05",
+											"type": "tableRow",
+											"content": [
+												{
+													"key": "645a0640-133c-4c45-b2bf-cc2e33e529bd",
+													"type": "tableHeader",
+													"content": {
+														"__TYPE__": "StructuredTextContent",
+														"value": [
+															{
+																"type": "paragraph",
+																"content": {
+																	"text": "Eiusmod enim."
+																}
+															}
+														]
+													}
+												},
+												{
+													"key": "9e5909be-e566-47a7-a7b9-e97cb54e5c07",
+													"type": "tableHeader",
+													"content": {
+														"__TYPE__": "StructuredTextContent",
+														"value": [
+															{
+																"type": "paragraph",
+																"content": {
+																	"text": "Ex ipsum."
+																}
+															}
+														]
+													}
+												}
+											]
+										},
+										{
+											"key": "aecdac00-8695-4ddc-849b-ed66d4c79989",
+											"type": "tableRow",
+											"content": [
+												{
+													"key": "14bf870d-df05-47d3-a578-cf998cfde6c4",
+													"type": "tableCell",
+													"content": {
+														"__TYPE__": "StructuredTextContent",
+														"value": [
+															{
+																"type": "paragraph",
+																"content": {
+																	"text": "Laborum id dolore velit sit ex."
+																}
+															}
+														]
+													}
+												},
+												{
+													"key": "774e8c6f-d530-45c3-a13f-fd73b2538fe8",
+													"type": "tableCell",
+													"content": {
+														"__TYPE__": "StructuredTextContent",
+														"value": [
+															{
+																"type": "paragraph",
+																"content": {
+																	"text": "Est incididunt ut cupidatat."
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
