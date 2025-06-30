@@ -59,19 +59,11 @@ const Header = ({ settings, navigation }: HeaderProps) => {
       >
         <div className='relative mx-auto max-w-[1170px] items-center justify-between px-4 sm:px-8 xl:flex xl:px-0'>
           <div className='flex shrink-0 items-center justify-between'>
-            <Link href='/' className='shrink-0'>
-            {/* <PrismicNextLink
-              href="/"
-              className="text-xl font-semibold tracking-tight"
-            > */}
-              <Image src={logoLight} alt='Logo' className='hidden w-full dark:block' />
-              <Image src={logoLight} alt='Logo' className='w-full dark:hidden' />
-            {/* </PrismicNextLink> */}
+          <Link href='/' className='shrink-0'>
+              <Image src={logoLight} alt='Logo' className='w-[70%] md:w-full' />
             </Link>
 
-            <div className='ml-auto mr-4 lg:hidden'>
-              {/* <LanguageSwitcher /> */}
-            </div>
+          
 
             {/* <!-- Hamburger Toggle BTN --> */}
             <button

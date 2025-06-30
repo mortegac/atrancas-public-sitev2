@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | CategoriesSlice
   | MiniGallerySlice
   | TalkWhatsappSlice
   | IdeasSlice
@@ -191,6 +192,134 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
+ * Item in *Categories → Default → Primary → listCategories*
+ */
+export interface CategoriesSliceDefaultPrimaryListcategoriesItem {
+  /**
+   * image field in *Categories → Default → Primary → listCategories*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.default.primary.listcategories[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * title field in *Categories → Default → Primary → listCategories*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.default.primary.listcategories[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *Categories → Default → Primary → listCategories*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.default.primary.listcategories[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * callToActionLink field in *Categories → Default → Primary → listCategories*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.default.primary.listcategories[].calltoactionlink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  calltoactionlink: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * callToActionText field in *Categories → Default → Primary → listCategories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.default.primary.listcategories[].calltoactiontext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  calltoactiontext: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Categories → Default → Primary*
+ */
+export interface CategoriesSliceDefaultPrimary {
+  /**
+   * title field in *Categories → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *Categories → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * listCategories field in *Categories → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.default.primary.listcategories[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  listcategories: prismic.GroupField<
+    Simplify<CategoriesSliceDefaultPrimaryListcategoriesItem>
+  >;
+}
+
+/**
+ * Default variation for Categories Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CategoriesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CategoriesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Categories*
+ */
+type CategoriesSliceVariation = CategoriesSliceDefault;
+
+/**
+ * Categories Shared Slice
+ *
+ * - **API ID**: `categories`
+ * - **Description**: Categories
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CategoriesSlice = prismic.SharedSlice<
+  "categories",
+  CategoriesSliceVariation
+>;
+
+/**
  * Primary content in *Contact → Default → Primary*
  */
 export interface ContactSliceDefaultPrimary {
@@ -235,6 +364,16 @@ export interface ContactSliceDefaultPrimary {
   email: prismic.KeyTextField;
 
   /**
+   * message field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.message
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  message: prismic.KeyTextField;
+
+  /**
    * phone field in *Contact → Default → Primary*
    *
    * - **Field Type**: Text
@@ -263,16 +402,6 @@ export interface ContactSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   backgroundimage: prismic.ImageField<never>;
-
-  /**
-   * message field in *Contact → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: contact.default.primary.message
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  message: prismic.KeyTextField;
 }
 
 /**
@@ -1108,6 +1237,11 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      CategoriesSlice,
+      CategoriesSliceDefaultPrimaryListcategoriesItem,
+      CategoriesSliceDefaultPrimary,
+      CategoriesSliceVariation,
+      CategoriesSliceDefault,
       ContactSlice,
       ContactSliceDefaultPrimary,
       ContactSliceVariation,

@@ -1,51 +1,59 @@
 import { FC } from "react";
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { type Content, isFilled } from "@prismicio/client";
+import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
+import type { SliceComponentProps, JSXMapSerializer } from "@prismicio/react";
 
-/**
- * Props for `Ideas`.
- */
-export type IdeasProps = SliceComponentProps<Content.IdeasSlice>;
+import { Bounded } from "@/components/Bounded";
+import { Heading } from "@/components/Heading";
+import { PrismicRichText } from "@/components/PrismicRichText";
 
-/**
- * Component for "Ideas" Slices.
- */
+import { commonComponents } from "@/components/PrismicSerializer";
+
+type IdeasProps = SliceComponentProps<Content.IdeasSlice>;
+
 const Ideas: FC<IdeasProps> = ({ slice }) => {
+  const backgroundImage = slice.primary.image;
+  const calltoactionlink = slice.primary.calltoactionlink;
+
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for ideas (variation: {slice.variation}) slices.
-      <br />
-      <strong>You can edit this slice directly in your code editor.</strong>
-      {/**
-       * 💡 Use Prismic MCP with your code editor
-       *
-       * Get AI-powered help to build your slice components — based on your actual model.
-       *
-       * ▶️ Setup:
-       * 1. Add a new MCP Server in your code editor:
-       *
-       * {
-       *   "mcpServers": {
-       *     "Prismic MCP": {
-       *       "command": "npx",
-       *       "args": ["-y", "@prismicio/mcp-server"]
-       *     }
-       *   }
-       * }
-       *
-       * 2. Select a model optimized for coding (e.g. Claude 3.7 Sonnet or similar)
-       *
-       * ✅ Then open your slice file and ask your code editor:
-       *    "Code this slice"
-       *
-       * Your code editor reads your slice model and helps you code faster ⚡
-       * 📚 Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-       */}
+    
+    <section id="container" className="relative bg-[#212121] text-white h-[500px] flex items-center justify-center">
+      {/* <pre>{JSON.stringify(slice.primary, null, 2 )}</pre> */}
+      {isFilled.image(backgroundImage) && (
+        <PrismicNextImage
+          field={backgroundImage}
+          alt=""
+          fill={true}
+          className="pointer-events-none select-none object-cover opacity-40"
+        />
+      )}
+      <Bounded yPadding="base" className="relative h-full flex items-center justify-center">
+        <div id="content" className="w-full flex flex-col justify-center items-center text-center">
+          <PrismicRichText
+            field={slice.primary.title}
+            components={commonComponents}
+          />
+          <PrismicRichText
+            field={slice.primary.description}
+            components={commonComponents}
+          />
+          {isFilled.link(slice.primary.calltoactionlink) && (
+            <PrismicNextLink
+              field={calltoactionlink}
+              className="mt-12 rounded-sm bg-[#c39f77] px-5 py-3 font-medium text-white"
+            >
+              Cotiza tu ambientación aquí
+            </PrismicNextLink>
+          )}
+        </div>
+        <div className="grid justify-items-start gap-8">
+         
+          {/* <pre>{JSON.stringify(slice.primary, null, 2 )}</pre> */}
+        </div>
+      </Bounded>
     </section>
   );
 };
 
 export default Ideas;
+

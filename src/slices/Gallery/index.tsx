@@ -5,7 +5,6 @@ import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import Image from 'next/image';
 
-import { Bounded } from "@/components/Bounded";
 /**
  * Props for `Gallery`.
  */

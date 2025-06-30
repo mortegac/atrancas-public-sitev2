@@ -238,7 +238,7 @@ const Footer = () => {
 
 
             {/* <div className='w-full sm:w-auto '>
-              <h2 className='mb-5 font-satoshi text-lg font-bold -tracking-[0.2px] text-white'>
+              <h2 className='mb-5   text-lg font-bold -tracking-[0.2px] text-white'>
                Blog
               </h2>
 
@@ -259,7 +259,7 @@ const Footer = () => {
             
 
             <div className='w-full sm:w-auto min-w-56'>
-              <h2 className='mb-5 font-satoshi text-lg font-bold -tracking-[0.2px] text-white'>
+              <h2 className='mb-5   text-lg font-bold -tracking-[0.2px] text-white'>
                 {/* {t('company.title')}  */}
                 Websites
               </h2>

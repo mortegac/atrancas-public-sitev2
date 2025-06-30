@@ -18,7 +18,7 @@ export const commonComponents: JSXMapSerializer = {
     </Heading>
   ),
   heading4: ({ children }) => (
-    <Heading as="h3" size="md" className="mb-4 mt-12 first:mt-0 last:mb-0">
+    <Heading as="h4" size="sm" className="mb-4 mt-12 first:mt-0 last:mb-0">
       {children}
     </Heading>
   ),
@@ -31,7 +31,8 @@ export const commonComponents: JSXMapSerializer = {
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <span className="mb-4 mt-12 first:mt-0 last:mb-0 text-lg leading-relaxed">
+    <span className="mb-4 mt-12 first:mt-0 last:mb-0 text-lg leading-relaxed
+    font-medium text-white ">
       {children}
     </span>
   ),

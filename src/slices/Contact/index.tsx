@@ -34,7 +34,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   // const calltoactionlink = slice.primary.calltoactionlink;
 
   return (
-    <section className="relative bg-[#212121] text-white h-[850px]">
+    <section className="relative bg-[#212121] text-white ">
       {isFilled.image(backgroundImage) && (
         <PrismicNextImage
           field={backgroundImage}
@@ -43,28 +43,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
           className="pointer-events-none select-none object-cover opacity-40"
         />
       )}
-      <Bounded yPadding="lg" className="relative h-full flex items-center">
-        <div className="grid justify-items-start gap-8">
-          <div className="max-w-2xl text-left">
-            <PrismicRichText
-              field={slice.primary.title}
-              components={components}
-            />
-          </div>
-          <div className="max-w-2xl text-left">
-            <PrismicRichText
-              field={slice.primary.description}
-              components={components}
-            />
-          </div>
-          
-          <div
+      <Bounded yPadding="base" className="relative">
+      <div className=" w-full flex items-start flex-row">
+          <div id="boxLeft"
               key="contact-form"
-              className='max-w-[600px] w-full bg-white border border-[rgba(0,17,51,0.15)] rounded-[24px] p-[48px] flex flex-col justify-start items-start relative'
+              className='min-w-[600px] w-full bg-white border border-[rgba(0,17,51,0.15)] rounded-[24px] p-[48px] flex flex-col justify-start items-start relative'
             >
-            <div className="space-y-6"></div>
-            
-          <form  className="space-y-4  w-full">
+              <form  className="space-y-4  w-full">
             {/* :(<form onSubmit={handleSubmit(onSubmit)} className="space-y-4  w-full"> */}
                 <div>
                 <label htmlFor="name" className="block text-xl font-light text-gray-700 ">
@@ -135,18 +120,24 @@ const Contact: FC<ContactProps> = ({ slice }) => {
                   
                 </div>
               </form>
-                </div>
+          </div>
+          <div  id="boxRight" className="ml-20">
+          <div className="mb-20">
+            <PrismicRichText
+              field={slice.primary.title}
+              components={components}
+            />
+          </div>
+            <PrismicRichText
+              field={slice.primary.description}
+              components={components}
+            />
+            
+          </div>
           
-          {/* <pre>{JSON.stringify(slice.primary, null, 2 )}</pre> */}
-          {/* {isFilled.link(calltoactionlink) && (
-            <PrismicNextLink
-              field={calltoactionlink}
-              className="rounded-sm bg-[#c39f77] px-12 py-6 font-medium text-white text-2xl"
-            >
-              Conoce nuestro catálogo
-            </PrismicNextLink>
-          )} */}
-        </div>
+  
+      </div>
+    
       </Bounded>
     </section>
   );
@@ -202,17 +193,17 @@ export default Contact;
               
 //             { isSentEmail.sentEmail ? (
 //               <>
-//                 <h4 className='mb-5 font-satoshi font-bold  text-slate-700  text-[32px] leading-10'>
+//                 <h4 className='mb-5   font-bold  text-slate-700  text-[32px] leading-10'>
 //                 {isSentEmail.title}
 //                 </h4>
-//                 <p className='font-satoshi  text-slate-700 text-[20px] mb-8  leading-6'> {isSentEmail.text}</p>
+//                 <p className='   text-slate-700 text-[20px] mb-8  leading-6'> {isSentEmail.text}</p>
 
 //                 <Link 
 //                     href={"/"}
 //                     passHref
 //                     prefetch
 //                     rel="noopener noreferrer nofollow" 
-//                     className='inline-flex items-center gap-4 rounded-full bg-black py-2 pl-7.5 pr-2 font-satoshi font-medium text-white hover:bg-opacity-90 dark:bg-primary'
+//                     className='inline-flex items-center gap-4 rounded-full bg-black py-2 pl-7.5 pr-2   font-medium text-white hover:bg-opacity-90 dark:bg-primary'
 //                   >{"Back to home"}
 //                 </Link>
 //               </>

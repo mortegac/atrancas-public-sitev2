@@ -8,6 +8,7 @@ type BoundedProps = {
   collapsible?: boolean;
   className?: string;
   children?: ReactNode;
+  maxWidth?: "default" | "none";
 };
 
 export function Bounded({
@@ -17,6 +18,7 @@ export function Bounded({
   collapsible = true,
   className,
   children,
+  maxWidth = "default",
 }: BoundedProps) {
   return (
     <Comp
@@ -31,7 +33,9 @@ export function Bounded({
       )}
     >
       <div className={clsx(
-        "mx-auto max-w-[1170px] w-full",
+        "mx-auto w-full",
+        maxWidth === "default" && "max-w-[1170px]",
+        maxWidth === "none" && "max-w-none",
         xPadding === "default" && "px-16",
         xPadding === "none" && "px-0"
       )}>{children}</div>

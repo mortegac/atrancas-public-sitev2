@@ -44,6 +44,13 @@
             "placeholder": ""
           }
         },
+        "message": {
+          "type": "Text",
+          "config": {
+            "label": "message",
+            "placeholder": ""
+          }
+        },
         "phone": {
           "type": "Text",
           "config": {
@@ -64,13 +71,6 @@
             "label": "backgroundImage",
             "constraint": {},
             "thumbnails": []
-          }
-        },
-        "message": {
-          "type": "Text",
-          "config": {
-            "label": "message",
-            "placeholder": ""
           }
         }
       },

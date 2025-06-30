@@ -29,9 +29,11 @@ const MiniGallery: FC<MiniGalleryProps> = ({ slice }) => {
   const options = { loop: true };
 
   return (
-    <section className="relative text-white py-[22px] px-96 bg-black">
+    // <section className="relative text-white py-[22px]  bg-black">
+      <section className="relative  text-white py-[22px] bg-black">
+        <Bounded yPadding="base" className="relative">
       {/* Título y descripción centrados */}
-      <div className="max-w-4xl mx-auto px-4 mb-8 text-center">
+      <div className="mx-auto mb-8 text-left">
         {slice.primary.title && (
           <div className="mb-4">
             <PrismicRichText 
@@ -80,6 +82,7 @@ const MiniGallery: FC<MiniGalleryProps> = ({ slice }) => {
 
       {/* Carrusel */}
       <EmblaCarousel images={images} options={options} />
+      </Bounded>
     </section>
   );
 };
