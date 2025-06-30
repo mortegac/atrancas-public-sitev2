@@ -111,5 +111,123 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "listShort",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Anim culpa eu mollit nulla laborum eu et dolore aliquip irure aliquip et commodo. Irure reprehenderit mollit ipsum aliqua eu ex magna est. Do dolor adipisicing quis."
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Voluptate excepteur dolor ut ad velit tempor sunt ullamco. Fugiat et Lorem aute duis sunt quis."
+						}
+					}
+				]
+			},
+			"listcategories": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
+										"width": 3168,
+										"height": 4752
+									},
+									"url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
+									"width": 3168,
+									"height": 4752,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "electric",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Proident deserunt incididunt consequat non voluptate ad cupidatat commodo. In labore quis eiusmod reprehenderit ut enim."
+											}
+										}
+									]
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Nulla nisi sunt ut non nostrud laboris amet pariatur dolore quis deserunt deserunt incididunt aliqua non."
+											}
+										}
+									]
+								}
+							],
+							[
+								"calltoactionlink",
+								{
+									"key": "90b8531c-45e4-49f8-8809-391700dc9e3c",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "climate"
+									}
+								}
+							],
+							[
+								"calltoactiontext",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "ask",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

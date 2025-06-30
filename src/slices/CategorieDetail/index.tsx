@@ -40,7 +40,7 @@ const CategorieDetail: FC<CategorieDetailProps> = ({ slice }) => {
   
   return (
     
-    <section className="relative bg-[#212121] text-white pt-20">
+    <section className="relative bg-[#212121] text-white">
       <Bounded yPadding="base" className="relative">
         <div className="mx-auto w-full ">
           <div className="text-center">

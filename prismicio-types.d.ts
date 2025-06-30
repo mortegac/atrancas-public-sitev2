@@ -376,6 +376,67 @@ export interface CategoriesSliceDefaultPrimaryListcategoriesItem {
 }
 
 /**
+ * Item in *Categories → ListShort → Primary → listCategories*
+ */
+export interface CategoriesSliceListShortPrimaryListcategoriesItem {
+  /**
+   * image field in *Categories → ListShort → Primary → listCategories*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.listShort.primary.listcategories[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * title field in *Categories → ListShort → Primary → listCategories*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.listShort.primary.listcategories[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *Categories → ListShort → Primary → listCategories*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.listShort.primary.listcategories[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * callToActionLink field in *Categories → ListShort → Primary → listCategories*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.listShort.primary.listcategories[].calltoactionlink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  calltoactionlink: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * callToActionText field in *Categories → ListShort → Primary → listCategories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.listShort.primary.listcategories[].calltoactiontext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  calltoactiontext: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *Categories → Default → Primary*
  */
 export interface CategoriesSliceDefaultPrimary {
@@ -426,9 +487,61 @@ export type CategoriesSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Categories → ListShort → Primary*
+ */
+export interface CategoriesSliceListShortPrimary {
+  /**
+   * title field in *Categories → ListShort → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.listShort.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *Categories → ListShort → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.listShort.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * listCategories field in *Categories → ListShort → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categories.listShort.primary.listcategories[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  listcategories: prismic.GroupField<
+    Simplify<CategoriesSliceListShortPrimaryListcategoriesItem>
+  >;
+}
+
+/**
+ * ListShort variation for Categories Slice
+ *
+ * - **API ID**: `listShort`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CategoriesSliceListShort = prismic.SharedSliceVariation<
+  "listShort",
+  Simplify<CategoriesSliceListShortPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Categories*
  */
-type CategoriesSliceVariation = CategoriesSliceDefault;
+type CategoriesSliceVariation =
+  | CategoriesSliceDefault
+  | CategoriesSliceListShort;
 
 /**
  * Categories Shared Slice
@@ -1368,8 +1481,11 @@ declare module "@prismicio/client" {
       CategoriesSlice,
       CategoriesSliceDefaultPrimaryListcategoriesItem,
       CategoriesSliceDefaultPrimary,
+      CategoriesSliceListShortPrimaryListcategoriesItem,
+      CategoriesSliceListShortPrimary,
       CategoriesSliceVariation,
       CategoriesSliceDefault,
+      CategoriesSliceListShort,
       ContactSlice,
       ContactSliceDefaultPrimary,
       ContactSliceVariation,
