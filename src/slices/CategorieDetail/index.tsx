@@ -41,14 +41,15 @@ const CategorieDetail: FC<CategorieDetailProps> = ({ slice }) => {
   return (
     
     <section className="relative bg-[#212121] text-white">
-      <Bounded yPadding="base" className="relative">
+      {/* <Bounded yPadding="base" className="relative"> */}
+      <Bounded yPadding="base" xPadding="responsive" className="relative px-4">
         <div className="mx-auto w-full ">
           <div className="text-center">
             <PrismicRichText
               field={slice.primary.title}
               components={commonComponents}
               />
-            <div className=' flex flex-row justify-center items-center mt-20'>
+            <div className=' flex flex-row justify-center items-center mt-20 text-left sm:text-center'>
               <PrismicRichText
                 field={slice.primary.description}
                 components={commonComponents}
@@ -61,8 +62,8 @@ const CategorieDetail: FC<CategorieDetailProps> = ({ slice }) => {
           <div id="list" className="grid grid-cols-1 gap-12 mt-20">
                   
             { Array.isArray(Lounges) && Lounges.map((item, index)=>(
-               <div key={`${index}-LoungesDetail-LIST`} id="item" className='overflow-hidden rounded-2xl cursor-pointer flex flex-row border '>
-                 <div className="w-1/2 h-full relative">
+               <div key={`${index}-LoungesDetail-LIST`} id="item" className='overflow-hidden rounded-2xl cursor-pointer flex flex-col md:flex-row border'>
+                 <div className="w-full md:w-1/2 h-64 md:h-full relative">
                    <Image 
                      src={item?.image?.url || ""} 
                      alt={item?.image?.alt || ""} 
@@ -73,7 +74,7 @@ const CategorieDetail: FC<CategorieDetailProps> = ({ slice }) => {
                      {item?.codeproduct}
                    </span>
                  </div>
-                 <div id="content" className="w-1/2 h-full flex flex-col justify-center items-center p-8">
+                 <div id="content" className="w-full md:w-1/2 h-full flex flex-col justify-center items-center p-8">
                    <PrismicRichText
                      field={item?.title}
                      components={commonComponents}
@@ -83,8 +84,8 @@ const CategorieDetail: FC<CategorieDetailProps> = ({ slice }) => {
                      components={commonComponents}
                    />  
                    <div className="prismic-table">
-  <PrismicTable field={item.prices} />
-</div>
+                     <PrismicTable field={item.prices} />
+                   </div>
                    {/* <table>
         <thead>
           <tr>
