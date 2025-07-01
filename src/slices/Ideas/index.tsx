@@ -28,7 +28,7 @@ const Ideas: FC<IdeasProps> = ({ slice }) => {
         />
       )}
       <Bounded yPadding="base" className="relative h-full flex items-center justify-center">
-        <div id="content" className="w-full flex flex-col justify-center items-center text-center">
+        <div id="content" className="w-full flex flex-col justify-evenly items-center text-center">
           <PrismicRichText
             field={slice.primary.title}
             components={commonComponents}
@@ -46,10 +46,6 @@ const Ideas: FC<IdeasProps> = ({ slice }) => {
             </PrismicNextLink>
           )}
         </div>
-        {/* <div className="grid justify-items-center items-center p-8">
-         
-          hola
-        </div> */}
           {/* <pre>{JSON.stringify(slice.primary?.calltoactionlink, null, 2 )}</pre> */}
       </Bounded>
     </section>

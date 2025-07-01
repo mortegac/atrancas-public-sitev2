@@ -31,7 +31,6 @@ const ListShort: FC<CategoriesProps> = ({ slice }) => {
     
     <section id="container" className="relative bg-[#212121] text-white ">
       <Bounded yPadding="base" xPadding="responsive" className="relative px-4">
-      {/* <h2>ListShort</h2> */}
         <div className="w-full ">
           <div className="text-center px-0">
             <PrismicRichText
@@ -47,14 +46,14 @@ const ListShort: FC<CategoriesProps> = ({ slice }) => {
           </div>
         </div>
         <div className="w-full">
-          <div id="list" className="flex flex-row mt-2 gap-6 overflow-x-auto pb-4">
+          <div id="list" className="flex flex-row justify-center items-center mt-2 gap-6 overflow-x-auto pb-4">
             { Array.isArray(categories) && categories.map((item, index)=>(
               <PrismicNextLink 
                 field={item.calltoactionlink}
                 rel={'noopener noreferrer'}
                 className="cursor-pointer flex-shrink-0"
               >
-                <div className='overflow-hidden rounded-2xl flex justify-start items-center flex-col border p-4 w-64 h-56'>
+                <div className='overflow-hidden rounded-2xl flex justify-evenly items-center flex-col border p-4 w-64 h-56'>
                   <div 
                     key={`${index}-CATEGORIES-LIST`} 
                     className='transition-transform duration-300 ease-in-out hover:scale-110'
