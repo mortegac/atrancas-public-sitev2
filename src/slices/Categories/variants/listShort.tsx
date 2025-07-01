@@ -29,7 +29,7 @@ const ListShort: FC<CategoriesProps> = ({ slice }) => {
   
   return (
     
-    <section id="container" className="relative bg-[#212121] text-white pt-20">
+    <section id="container" className="relative bg-[#212121] text-white ">
       <Bounded yPadding="base" xPadding="responsive" className="relative px-4">
       {/* <h2>ListShort</h2> */}
         <div className="w-full ">
@@ -38,7 +38,7 @@ const ListShort: FC<CategoriesProps> = ({ slice }) => {
               field={slice.primary.title}
               components={commonComponents}
               />
-            <div className=' flex flex-row justify-center items-center mt-12'>
+            <div className=' flex flex-row justify-center items-center my-12'>
               <PrismicRichText
                 field={slice.primary.description}
                 components={commonComponents}

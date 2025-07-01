@@ -56,6 +56,11 @@
 					"url": "http://google.com",
 					"text": "bring"
 				}
+			},
+			"calltoactiontext": {
+				"__TYPE__": "FieldContent",
+				"value": "trick",
+				"type": "Text"
 			}
 		},
 		"items": []

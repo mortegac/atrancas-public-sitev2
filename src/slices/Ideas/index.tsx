@@ -46,10 +46,11 @@ const Ideas: FC<IdeasProps> = ({ slice }) => {
             </PrismicNextLink>
           )}
         </div>
-        <div className="grid justify-items-start gap-8">
+        {/* <div className="grid justify-items-center items-center p-8">
          
-          {/* <pre>{JSON.stringify(slice.primary, null, 2 )}</pre> */}
-        </div>
+          hola
+        </div> */}
+          {/* <pre>{JSON.stringify(slice.primary?.calltoactionlink, null, 2 )}</pre> */}
       </Bounded>
     </section>
   );

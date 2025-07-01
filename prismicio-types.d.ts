@@ -1044,6 +1044,16 @@ export interface IdeasSliceDefaultPrimary {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * callToActionText field in *Ideas → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ideas.default.primary.calltoactiontext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  calltoactiontext: prismic.KeyTextField;
 }
 
 /**

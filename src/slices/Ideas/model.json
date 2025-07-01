@@ -48,6 +48,13 @@
             "allowText": true,
             "repeat": false
           }
+        },
+        "calltoactiontext": {
+          "type": "Text",
+          "config": {
+            "label": "callToActionText",
+            "placeholder": ""
+          }
         }
       },
       "items": {}
