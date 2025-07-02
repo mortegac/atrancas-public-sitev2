@@ -13,7 +13,7 @@
 //  */
 // const CategorieDetail: FC<CategorieDetailProps> = ({ slice }) => {
 
-
+'use client';
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
@@ -83,8 +83,18 @@ const CategorieDetail: FC<CategorieDetailProps> = ({ slice }) => {
                      field={item?.description}
                      components={commonComponents}
                    />  
-                   <div className="prismic-table">
-                     <PrismicTable field={item.prices} />
+                   <div id="table" className="w-full overflow-x-auto">
+                     <div className="prismic-table">
+                       <PrismicTable 
+                         field={item.prices}
+                         components={{
+                           table: ({ children }) => <table className="w-full border-collapse">{children}</table>,
+                           tr: ({ children }) => <tr className="border-b border-gray-200">{children}</tr>,
+                           td: ({ children }) => <td className="px-2 py-1">{children}</td>,
+                           th: ({ children }) => <th className="px-2 py-1">{children}</th>,
+                         }}
+                       />
+                     </div>
                    </div>
                    {/* <table>
         <thead>
