@@ -687,12 +687,12 @@ export interface FaqsSliceDefaultPrimaryQuestionsItem {
   /**
    * html field in *Faqs → Default → Primary → questions*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: faqs.default.primary.questions[].html
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  html: prismic.KeyTextField;
+  html: prismic.RichTextField;
 }
 
 /**
@@ -708,6 +708,16 @@ export interface FaqsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   title: prismic.RichTextField;
+
+  /**
+   * description field in *Faqs → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
 
   /**
    * questions field in *Faqs → Default → Primary*

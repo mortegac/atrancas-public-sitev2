@@ -37,12 +37,29 @@
 							[
 								"html",
 								{
-									"__TYPE__": "FieldContent",
-									"value": "out",
-									"type": "Text"
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Dolore ex qui ea dolor proident excepteur nisi adipisicing culpa anim. Anim nostrud exercitation laboris reprehenderit sit adipisicing sit culpa officia eu sint duis."
+											}
+										}
+									]
 								}
 							]
 						]
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Anim pariatur elit aliqua labore eiusmod reprehenderit eu occaecat. Commodo laboris quis enim occaecat qui et."
+						}
 					}
 				]
 			}
