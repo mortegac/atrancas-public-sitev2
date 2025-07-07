@@ -51,6 +51,7 @@ const Default: FC<CategoriesProps> = ({ slice }) => {
             { Array.isArray(categories) && categories.map((item, index)=>(
                <PrismicNextLink 
                field={item.calltoactionlink}
+               key={`${index}-CATEGORIES`}
               //  onClick={() => setNavbarOpen(false)}
                rel={'noopener noreferrer'}
                className="cursor-pointer "

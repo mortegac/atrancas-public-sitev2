@@ -52,6 +52,7 @@ const ListShort: FC<CategoriesProps> = ({ slice }) => {
                 field={item.calltoactionlink}
                 rel={'noopener noreferrer'}
                 className="cursor-pointer flex-shrink-0"
+                key={`${index}-listshort`}
               >
                 <div className='overflow-hidden rounded-2xl flex justify-evenly items-center flex-col border p-4 w-64 h-56'>
                   <div 

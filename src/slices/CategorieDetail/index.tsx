@@ -63,18 +63,20 @@ const CategorieDetail: FC<CategorieDetailProps> = ({ slice }) => {
                   
             { Array.isArray(Lounges) && Lounges.map((item, index)=>(
                <div key={`${index}-LoungesDetail-LIST`} id="item" className='overflow-hidden rounded-2xl cursor-pointer flex flex-col md:flex-row border'>
-                 <div className="w-full md:w-1/2 h-64 md:h-full relative">
+                 <div id="imageContainer" className="w-full md:w-[500px] h-[350px] relative flex-shrink-0">
                    <Image 
                      src={item?.image?.url || ""} 
                      alt={item?.image?.alt || ""} 
-                     fill
-                     className="object-cover"
+                     className="object-cover rounded-2xl"
+                     width={500}
+                     height={350}
+                     style={{ width: '100%', height: '350px' }}
                    />
                    <span className="absolute top-4 left-4 w-20 font-bold h-20 p-2 bg-black text-white z-10 text-4xl flex items-center justify-center">
                      {item?.codeproduct}
                    </span>
                  </div>
-                 <div id="content" className="w-full md:w-1/2 h-full flex flex-col justify-center items-center p-8">
+                 <div id="content" className="pt-20 w-full md:w-1/2 h-[350px] flex flex-col justify-start items-center p-8 overflow-y-auto">
                    <PrismicRichText
                      field={item?.title}
                      components={commonComponents}
@@ -83,7 +85,7 @@ const CategorieDetail: FC<CategorieDetailProps> = ({ slice }) => {
                      field={item?.description}
                      components={commonComponents}
                    />  
-                   <div id="table" className="w-full overflow-x-auto">
+                   <div id="table" className="w-full">
                      <div className="prismic-table">
                        <PrismicTable 
                          field={item.prices}
