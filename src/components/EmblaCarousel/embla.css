@@ -44,6 +44,8 @@
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
+    /* background-color: black; */
+    
     touch-action: manipulation;
     display: inline-flex;
     text-decoration: none;
@@ -65,6 +67,9 @@
     color: var(--detail-high-contrast);
   }
   .embla__button__svg {
+    /* border: 2px solid white; */
+    /* border-radius: 16px;
+    padding: 10px; */
     width: 35%;
     height: 35%;
   }
@@ -73,22 +78,24 @@
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
-    margin-right: calc((2.6rem - 1.4rem) / 2 * -1);
+    margin-right: calc((2.6rem - 3.4rem) / 2 * -1);
   }
   .embla__dot {
     -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
+    /* background-color: white; */
     touch-action: manipulation;
     display: inline-flex;
     text-decoration: none;
     cursor: pointer;
-    border: 0;
+    border: 2px solid white;
     padding: 0;
     margin: 0;
-    width: 2.6rem;
-    height: 2.6rem;
+    
+    width: 0.9rem;
+    height: 0.9rem;
     display: flex;
     align-items: center;
     justify-content: center;

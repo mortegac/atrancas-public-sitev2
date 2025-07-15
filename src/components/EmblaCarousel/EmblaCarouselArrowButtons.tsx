@@ -60,7 +60,7 @@ import React, {
   
     return (
       <button
-        className="embla__button embla__button--prev bg-slate-900 rounded-full"
+        className="embla__button embla__button--prev bg-black rounded-full w-16 h-16"
         type="button"
         {...restProps}
       >
@@ -80,7 +80,7 @@ import React, {
   
     return (
       <button
-        className="embla__button embla__button--next"
+        className="embla__button embla__button--next bg-black rounded-full"
         type="button"
         {...restProps}
       >

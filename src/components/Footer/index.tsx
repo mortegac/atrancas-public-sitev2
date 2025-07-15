@@ -183,11 +183,11 @@ const Footer = () => {
                 {/* )} */}
                 
                 <li
-                      key={"swimming-lessons-in-miami-dade"}
+                      key={"nuestra-empresa22"}
                       className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                     >
                       <Link
-                        href="swimming-lessons-in-miami-dade"
+                        href="nuestra-empresa33"
                         rel="noopener noreferrer" 
                         className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                       >
@@ -195,11 +195,11 @@ const Footer = () => {
                       </Link>
                     </li>
                 <li
-                      key={"swimming-lessons-in-broward"}
+                      key={"nuestra-empresa"}
                       className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                     >
                       <Link
-                        href="swimming-lessons-in-broward"
+                        href="catalogo"
                         rel="noopener noreferrer" 
                         className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                       >

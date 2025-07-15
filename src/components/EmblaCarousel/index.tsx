@@ -50,6 +50,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         </div>
       </div>
 
+    {slides.length > 1 &&
       <div className="embla__controls absolute bottom-0 left-0 w-full flex justify-between p-4 z-10">
         <div className="embla__buttons flex gap-2">
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
@@ -68,6 +69,8 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           ))}
         </div>
       </div>
+
+}
     </div>
   )
 }
