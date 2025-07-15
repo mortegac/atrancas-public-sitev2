@@ -69,6 +69,38 @@
                   "thumbnails": []
                 }
               },
+              "image02": {
+                "type": "Image",
+                "config": {
+                  "label": "image02",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "image03": {
+                "type": "Image",
+                "config": {
+                  "label": "image03",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "image04": {
+                "type": "Image",
+                "config": {
+                  "label": "image04",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "image05": {
+                "type": "Image",
+                "config": {
+                  "label": "image05",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
               "prices": {
                 "type": "Table",
                 "config": {

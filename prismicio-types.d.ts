@@ -237,6 +237,46 @@ export interface CategorieDetailSliceDefaultPrimaryImagesItem {
   image: prismic.ImageField<never>;
 
   /**
+   * image02 field in *CategorieDetail → Default → Primary → images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categorie_detail.default.primary.images[].image02
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image02: prismic.ImageField<never>;
+
+  /**
+   * image03 field in *CategorieDetail → Default → Primary → images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categorie_detail.default.primary.images[].image03
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image03: prismic.ImageField<never>;
+
+  /**
+   * image04 field in *CategorieDetail → Default → Primary → images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categorie_detail.default.primary.images[].image04
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image04: prismic.ImageField<never>;
+
+  /**
+   * image05 field in *CategorieDetail → Default → Primary → images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: categorie_detail.default.primary.images[].image05
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image05: prismic.ImageField<never>;
+
+  /**
    * prices field in *CategorieDetail → Default → Primary → images*
    *
    * - **Field Type**: Table
