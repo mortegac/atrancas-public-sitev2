@@ -80,7 +80,7 @@ const CategorieDetail: FC<CategorieDetailProps> = ({ slice }) => {
                   item?.image03?.url,
                   item?.image04?.url,
                   item?.image05?.url
-                ].filter(Boolean)
+                ].filter((url): url is string => typeof url === 'string' && url.length > 0)
                 return (
                   <div key={`${index}-LoungesDetail-LIST`} id="item" className='overflow-hidden rounded-2xl cursor-pointer flex flex-col md:flex-row border'>
                     <div id="imageContainer" className="w-full md:w-[500px] h-[350px] relative flex-shrink-0">
