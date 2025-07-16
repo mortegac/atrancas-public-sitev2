@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { asText } from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
 import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
-
+import { useGTMEvent } from '@/components/Analytics'
 
 import logoLight from '@/../public/images/logo/logo_las_trancas.svg';
 import { onScroll } from '@/libs/scrollActive';
@@ -35,6 +35,8 @@ const Header = ({ settings, navigation }: HeaderProps) => {
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
+
+  const sendGTMEvent = useGTMEvent()
 
   useEffect(() => {
     if (window.location.pathname === '/') {
@@ -67,7 +69,7 @@ const Header = ({ settings, navigation }: HeaderProps) => {
 
             {/* <!-- Hamburger Toggle BTN --> */}
             <button
-              onClick={navbarToggleHandler}
+              onClick={e => { navbarToggleHandler(); sendGTMEvent({ event: 'menu_mobiles' }) }}
               aria-label='button for menu toggle'
               className='block xl:hidden'
             >
@@ -123,26 +125,14 @@ const Header = ({ settings, navigation }: HeaderProps) => {
                         item?.submenu ? 'group relative' : 'nav__menu'
                       } ${stickyMenu ? 'xl:py-4' : 'xl:py-6'}`}
                     >
-                      {/* <Link
-                        onClick={() => setNavbarOpen(false)}
-                        href={
-                          item?.path
-                            ? item?.path.includes('#') && !item?.newTab
-                              ? `/${item?.path}`
-                              : item?.path
-                            : ''
-                        }
-                        target={item?.newTab ? '_blank' : ''}
-                        rel={item?.newTab ? 'noopener noreferrer' : ''}
-                        className={`flex truncate rounded-full px-[14px] py-[3px] font-satoshi font-medium ${
-                          pathUrl === item?.path
-                            ? 'bg-primary/5 text-white dark:bg-white/5 dark:text-white'
-                            : 'text-white hover:bg-white/5 hover:text-white dark:text-gray-5 dark:hover:bg-white/5 dark:hover:text-white'
-                        } ${item?.path?.startsWith('#') ? 'menu-scroll' : ''}`}
-                      > */}
                        <PrismicNextLink 
                         field={item.link}
-                        onClick={() => setNavbarOpen(false)}
+                        onClick={() => { setNavbarOpen(false); sendGTMEvent({
+                          event: 'menu_superior',
+                          categoria: asText(item.label) || '',
+                          key,
+                          link: item.link
+                        })}}
                         rel={item?.newTab ? 'noopener noreferrer' : ''}
                         className={`flex truncate rounded-full px-[14px] py-[3px] font-satoshi font-medium ${
                           navbarOpen 

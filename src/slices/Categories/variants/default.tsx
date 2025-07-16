@@ -1,3 +1,4 @@
+'use client';
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
@@ -7,6 +8,8 @@ import Image from 'next/image';
 import { PrismicRichText,  } from "@/components/PrismicRichText";
 import { commonComponents } from "@/components/PrismicSerializer";
 import { Bounded } from "@/components/Bounded";
+import { useGTMEvent } from '@/components/Analytics'
+import { asText } from '@prismicio/client'
 
 
 /**
@@ -25,6 +28,7 @@ const Default: FC<CategoriesProps> = ({ slice }) => {
   }
   
   const categories = slice.primary.listcategories;
+  const sendGTMEvent = useGTMEvent()
   
   return (
     
@@ -52,10 +56,15 @@ const Default: FC<CategoriesProps> = ({ slice }) => {
                <PrismicNextLink 
                field={item.calltoactionlink}
                key={`${index}-CATEGORIES`}
-              //  onClick={() => setNavbarOpen(false)}
                rel={'noopener noreferrer'}
                className="cursor-pointer "
-              >
+               onClick={() => sendGTMEvent({
+                 event: 'catalogo_click',
+                 categoria: asText(item?.title) || '',
+                 index,
+                 link: typeof item?.calltoactionlink === 'object' && item?.calltoactionlink && 'url' in item.calltoactionlink && typeof item.calltoactionlink.url === 'string' ? item.calltoactionlink.url : ''
+               })}
+               >               
              
               <div className='overflow-hidden rounded-2xl  flex justify-center items-center flex-col border p-16'>
                 

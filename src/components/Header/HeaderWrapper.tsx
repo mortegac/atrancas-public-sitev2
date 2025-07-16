@@ -1,3 +1,4 @@
+'use client';
 import { createClient } from "@/prismicio";
 import Header from './index';
 

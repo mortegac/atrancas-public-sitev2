@@ -1,9 +1,10 @@
 "use client"
 
 import Script from 'next/script'
+import { useCallback } from 'react'
 
-const GA_MEASUREMENT_ID = 'G-JT3DJS33MD' // Reemplaza por tu ID real
-const GTM_ID = 'GTM-5QX7JFRZ' // Reemplaza por tu ID real
+const GA_MEASUREMENT_ID = 'G-JT3DJS33MD' // TAG MANAGEWR
+const GTM_ID = 'GTM-5QX7JFRZ' // GOOGLE ANALITYCS
 
 export default function Analytics() {
   return (
@@ -52,4 +53,13 @@ export default function Analytics() {
       </noscript>
     </>
   )
+}
+
+// Hook para enviar eventos personalizados a Google Tag Manager
+export function useGTMEvent() {
+  return useCallback((event: Record<string, any>) => {
+    if (typeof window !== 'undefined' && Array.isArray((window as any).dataLayer)) {
+      (window as any).dataLayer.push(event)
+    }
+  }, [])
 } 

@@ -9,6 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import emailjs, { init } from "emailjs-com";
+import { useGTMEvent } from '@/components/Analytics'
 const SERVICE = "service_0g33pau";
 const TEMPLATE = "template_scllte8";
 init("Cj4ceUn7ty-EX0iuD");
@@ -58,6 +59,7 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data: any) => {
+    const sendGTMEvent = useGTMEvent();
     setLoading(true);
     setEmailStatus(null);
     console.log("email: ", data)
@@ -79,6 +81,11 @@ const Contact: FC<ContactProps> = ({ slice }) => {
         { ...templateParams },
         process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
       );
+      sendGTMEvent({
+        event: 'envio_formulario',
+        email: data.emailForm || '',
+        nombre: data.nameForm || ''
+      });
       setEmailStatus('success');
       reset();
     } catch (error) {
