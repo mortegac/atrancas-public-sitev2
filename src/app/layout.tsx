@@ -10,6 +10,7 @@ import { Bounded } from "@/components/Bounded";
 
 import HeaderWrapper from '@/components/Header/HeaderWrapper';
 import Footer from '@/components/Footer';
+import Analytics from '@/components/Analytics'
 // import { HeaderWrapper } from '@/components/Header/HeaderWrapper';
 
 
@@ -25,11 +26,8 @@ export default async function RootLayout({
   return (
     <html lang="es" className={inter.variable}>
       <body className="overflow-x-hidden antialiased">
-        {/* <Header /> */}
-        {/* <Bounded as="header" yPadding="sm"> */}
-        <HeaderWrapper/>          
-        {/* </Bounded> */}
-        {/* {children} */}
+        <Analytics />
+        <HeaderWrapper/>
         <div className='isolate'>{children}</div>
         <PrismicPreview repositoryName={repositoryName} />
         <Footer/>          
