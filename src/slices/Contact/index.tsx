@@ -42,9 +42,11 @@ const schema = yup.object().shape({
   messageForm: yup.string().min(3, "El mensaje debe tener al menos 3 caracteres").required("El mensaje es obligatorio"),
 });
 
-
-
-
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
 
 const Contact: FC<ContactProps> = ({ slice }) => {
   const backgroundImage = slice?.primary?.backgroundimage;
@@ -81,6 +83,13 @@ const Contact: FC<ContactProps> = ({ slice }) => {
       );
       setEmailStatus('success');
       reset();
+
+      // Aquí ejecutas el evento de conversión de Google Ads
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-808610482/h8JLCIyh2_YCELLVyYED'
+        });
+      }
     } catch (error) {
       setEmailStatus('error');
     } finally {
