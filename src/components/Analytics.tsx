@@ -29,7 +29,7 @@ export default function Analytics() {
       {/* Google Analytics (GA4) */}
       {/* src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ADS}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
       />
       <Script
