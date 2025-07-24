@@ -3,8 +3,8 @@
 import Script from 'next/script'
 
 // const GA_MEASUREMENT_ID = 'G-JT3DJS33MD' // Reemplaza por tu ID real
-// const GA_MEASUREMENT_ID = 'G-QWT8LWXJ5J' // Reemplaza por tu ID real
-const GA_MEASUREMENT_ID = 'G-E617K946ZS' // Reemplaza por tu ID real
+const GA_MEASUREMENT_ID = 'G-QWT8LWXJ5J' // Reemplaza por tu ID real
+// const GA_MEASUREMENT_ID = 'G-E617K946ZS' // Reemplaza por tu ID real
 const GA_MEASUREMENT_ADS = 'AW-808610482' // Reemplaza por tu ID real
 const GTM_ID = 'GTM-5QX7JFRZ' // Reemplaza por tu ID real
 
