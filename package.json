@@ -30,7 +30,7 @@
     "embla-carousel-fade": "8.6.0",
     "embla-carousel-react": "^8.6.0",
     "gtag": "^1.0.1",
-    "next": "^15.1.6",
+    "next": "15.1.11",
     "next-intl": "^3.26.5",
     "next-themes": "^0.2.1",
     "nextjs-toploader": "^1.6.6",
