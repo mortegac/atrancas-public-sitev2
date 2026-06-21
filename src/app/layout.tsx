@@ -1,7 +1,7 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
-import Script from "next/script";
+
 import { Inter } from "next/font/google";
 import { asText } from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
@@ -69,13 +69,16 @@ export default async function RootLayout({
 
   return (
     <html lang="es" className={inter.variable}>
-      <body className="overflow-x-hidden antialiased">
-        <Analytics />
-        <Script
+      <head>
+        {/* eslint-disable-next-line @next/next/no-before-interactive-script-component */}
+        <script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="+HTWYOWCivkjpNm0PAp5GQ"
-          strategy="afterInteractive"
+          async
         />
+      </head>
+      <body className="overflow-x-hidden antialiased">
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
