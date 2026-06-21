@@ -151,10 +151,10 @@ const Footer = () => {
             
 
             <div className='w-full sm:w-auto  min-w-40'>
-              <h2 className='mb-5 text-lg font-bold -tracking-[0.2px] text-white'>
+              <h3 className='mb-5 text-lg font-bold -tracking-[0.2px] text-white'>
                 {/* {t('resources.title')} */}
                 Menú
-              </h2>
+              </h3>
 
               <ul className='flex flex-col gap-3 min-w-32'>
               {/* {menuData?.map((item:any, key) => */}
@@ -163,17 +163,7 @@ const Footer = () => {
                       className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                     >
                       <Link
-                        // onClick={() => setNavbarOpen(false)}
-                        href={""}
-                        // href={
-                        //   item?.path
-                        //     ? item?.path.includes('#') && !item?.newTab
-                        //       ? `/${item?.path}`
-                        //       : item?.path
-                        //     : ''
-                        // }
-                         target="_blank"
-                        // rel={item?.newTab ? 'noopener noreferrer ' : ''}
+                        href="/"
                         className={`flex duration-200 ease-out hover:text-white menu-scroll`}
                       >
                        Inicio
@@ -214,8 +204,8 @@ const Footer = () => {
                       className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                     >
                       <Link
-                        href="contact"
-                        rel="noopener noreferrer" 
+                        href="/galeria"
+                        rel="noopener noreferrer"
                         className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                       >
                        Galería
@@ -226,8 +216,8 @@ const Footer = () => {
                       className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                     >
                       <Link
-                        href="privacy-policy"
-                        rel="noopener noreferrer" 
+                        href="/contact"
+                        rel="noopener noreferrer"
                         className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                       >
                        Contacto
@@ -259,10 +249,10 @@ const Footer = () => {
             
 
             <div className='w-full sm:w-auto min-w-56'>
-              <h2 className='mb-5   text-lg font-bold -tracking-[0.2px] text-white'>
+              <h3 className='mb-5   text-lg font-bold -tracking-[0.2px] text-white'>
                 {/* {t('company.title')}  */}
                 Websites
-              </h2>
+              </h3>
 
               <ul className='flex flex-col gap-3'>
                 <li>

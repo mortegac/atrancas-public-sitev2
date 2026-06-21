@@ -7,6 +7,10 @@ import { SliceZone } from "@prismicio/react";
 
 import { components } from "@/slices";
 
+export const metadata = {
+  robots: { index: false, follow: false },
+};
+
 export default async function SliceSimulatorPage({
   searchParams,
 }: SliceSimulatorParams) {

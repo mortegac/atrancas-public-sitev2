@@ -2,9 +2,6 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import { PrismicTable } from "@prismicio/react";
-
-import Image from 'next/image';
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { commonComponents } from "@/components/PrismicSerializer";
 import { Bounded } from "@/components/Bounded";
@@ -22,29 +19,6 @@ const Faqs: FC<FaqsProps> = ({ slice }) => {
   
   const questions = slice?.primary?.questions;
   
-  const faqs = [
-    {
-      question: "How can I get started?",
-      answer:
-        "Getting started is easy! Sign up for an account, and you'll have access to our platform's features. No credit card required for the initial signup.",
-    },
-    {
-      question: "What is the pricing structure?",
-      answer:
-        "Our pricing structure is flexible. We offer both free and paid plans. You can choose the one that suits your needs and budget.",
-    },
-    {
-      question: "What kind of support do you provide?",
-      answer:
-        "We offer comprehensive customer support. You can reach out to our support team through various channels, including email, chat, and a knowledge base.",
-    },
-    {
-      question: "Can I cancel my subscription anytime?",
-      answer:
-        "Yes, you can cancel your subscription at any time without any hidden fees. We believe in providing a hassle-free experience for our users.",
-    },
-  ];
-
   const [open, setOpen] = useState<number | null>(null);
 
   const handleToggle = (idx: number) => {
@@ -120,24 +94,22 @@ const Faqs: FC<FaqsProps> = ({ slice }) => {
                           />
                         </svg>
                       </button>
-                      {open === idx && (
-                        <div
-                          id={`faq-answer-${idx}`}
-                          className="px-4 pb-5 sm:px-6 sm:pb-6 text-slate-800"
-                        >
-                          <PrismicRichText
-                     field={faq?.html}
-                     components={commonComponents}
-                   />   
-                        </div>
-                      )}
+                      <div
+                        id={`faq-answer-${idx}`}
+                        className={`px-4 pb-5 sm:px-6 sm:pb-6 text-slate-800 ${open === idx ? 'block' : 'hidden'}`}
+                      >
+                        <PrismicRichText
+                          field={faq?.html}
+                          components={commonComponents}
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>
                 <p className="text-center text-gray-600 text-base mt-9">
-                  Still have questions?
-                  <span className="cursor-pointer font-medium text-tertiary transition-all duration-200 hover:text-tertiary focus:text-tertiary underline ml-2">
-                    Contact our support
+                  ¿Tienes más preguntas?{' '}
+                  <span className="cursor-pointer font-medium text-[#c39f77] underline ml-2">
+                    Contáctanos
                   </span>
                 </p>
               </div>

@@ -42,7 +42,7 @@ const Ideas: FC<IdeasProps> = ({ slice }) => {
               field={calltoactionlink}
               className="mt-12 rounded-sm bg-[#c39f77] px-5 py-3 font-medium text-white"
             >
-              Cotiza tu ambientación aquí
+              Solicitar cotización
             </PrismicNextLink>
           )}
         </div>

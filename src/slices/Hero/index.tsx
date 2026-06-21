@@ -6,7 +6,7 @@ import type { SliceComponentProps, JSXMapSerializer } from "@prismicio/react";
 import { Bounded } from "@/components/Bounded";
 // import { Heading } from "@/components/Heading";
 import { PrismicRichText } from "@/components/PrismicRichText";
-import { commonComponents } from "@/components/PrismicSerializer";
+import { commonComponents, heroComponents } from "@/components/PrismicSerializer";
 
 // const components: JSXMapSerializer = {
 //   heading1: ({ children }) => (
@@ -42,6 +42,8 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           field={backgroundImage}
           alt=""
           fill={true}
+          priority={true}
+          sizes="100vw"
           className="pointer-events-none select-none object-cover opacity-40"
         />
       )}
@@ -53,8 +55,8 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           <div id="transparency" className="w-[96%] px-4 md:w-[600px] md:px-0 bg-black/50 h-svw relative  flex items-center justify-center">
             <div id="text" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white  w-full px-18">
               <PrismicRichText
-                field={slice.primary.title} 
-                components={commonComponents}
+                field={slice.primary.title}
+                components={heroComponents}
               />
               <PrismicRichText
                 field={slice.primary.description}

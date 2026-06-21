@@ -26,14 +26,20 @@ export const commonComponents: JSXMapSerializer = {
     <strong className="font-semibold text-[#c39f77]">{children}</strong>
   ),
   em: ({ children }) => (
-    <Heading as="h3" size="lg" className="mb-4 mt-0 first:mt-0 last:mb-0">
+    <em className="not-italic text-[#c39f77]">{children}</em>
+  ),
+  paragraph: ({ children }) => (
+    <p className="mb-4 first:mt-0 last:mb-0 text-lg leading-relaxed font-medium">
+      {children}
+    </p>
+  ),
+};
+
+export const heroComponents: JSXMapSerializer = {
+  ...commonComponents,
+  heading1: ({ children }) => (
+    <Heading as="h1" size="xl" className="mb-0 mt-0 first:mt-0 last:mb-0">
       {children}
     </Heading>
   ),
-  paragraph: ({ children }) => (
-    <span className="mb-4 mt-12 first:mt-0 last:mb-0 text-lg leading-relaxed
-    font-medium text-white ">
-      {children}
-    </span>
-  ),
-}; 
+};

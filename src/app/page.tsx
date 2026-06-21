@@ -13,10 +13,16 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: asText(page.data.title),
     description: page.data.meta_description,
+    alternates: { canonical: '/' },
     openGraph: {
-      title: page.data.meta_title ?? undefined,
-      images: [{ url: page.data.meta_image.url ?? "" }],
+      title: page.data.meta_title ?? asText(page.data.title) ?? undefined,
+      description: page.data.meta_description ?? undefined,
+      type: 'website' as const,
+      images: page.data.meta_image?.url
+        ? [{ url: page.data.meta_image.url }]
+        : [{ url: '/og-default.jpg' }],
     },
+    twitter: { card: 'summary_large_image' as const },
   };
 }
 

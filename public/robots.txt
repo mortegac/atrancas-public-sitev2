@@ -3,13 +3,26 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://atrancas.cl/sitemap.xml
+Sitemap: https://www.atrancas.cl/sitemap.xml
 
 # Disallow admin and api routes
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
-Disallow: /static/
+Disallow: /slice-simulator
 
-# Crawl-delay
-Crawl-delay: 10 
+# AI Search Crawlers — explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /

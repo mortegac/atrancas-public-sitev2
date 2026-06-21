@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { asText } from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
@@ -20,17 +21,63 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.atrancas.cl'),
+  title: {
+    template: '%s | Atrancas',
+    default: 'Atrancas — Rincones Campestres, Buffet y Herrajes en Chile',
+  },
+  description: 'Especialistas en rincones campestres, mesones para buffet, barras y herrajes de seguridad en Chile. Entrega e instalación en Santiago y regiones.',
+  openGraph: {
+    siteName: 'Atrancas',
+    type: 'website',
+    locale: 'es_CL',
+  },
+  robots: { index: true, follow: true },
+};
+
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const siteSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Store", "LocalBusiness"],
+        "@id": "https://www.atrancas.cl/#business",
+        "name": "Atrancas",
+        "description": "Especialistas en rincones campestres, mesones para buffet, barras y herrajes de seguridad en Chile.",
+        "url": "https://www.atrancas.cl",
+        "areaServed": { "@type": "Country", "name": "Chile" },
+        "sameAs": [
+          "https://www.instagram.com/las.trancas",
+          "https://www.instagram.com/delahoguera",
+          "https://www.facebook.com/lastrancasambientacioncampoestre"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.atrancas.cl/#website",
+        "url": "https://www.atrancas.cl",
+        "name": "Atrancas",
+        "inLanguage": "es-CL",
+        "publisher": { "@id": "https://www.atrancas.cl/#business" }
+      }
+    ]
+  };
+
   return (
     <html lang="es" className={inter.variable}>
       <body className="overflow-x-hidden antialiased">
         <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
+        />
         <HeaderWrapper/>
         <div className='isolate'>{children}</div>
-        <PrismicPreview repositoryName={repositoryName} />
-        <Footer/>          
+        {process.env.NODE_ENV !== 'production' && <PrismicPreview repositoryName={repositoryName} />}
+        <Footer/>
       </body>
     </html>
   );
