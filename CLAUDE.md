@@ -58,6 +58,13 @@ Tailwind CSS v4. Brand accent color: `#c39f77`. Custom heading sizes defined in 
 
 In production, Prismic content is `force-cache`; in dev it revalidates every 5 seconds.
 
+## Proyectos asociados
+
+| Proyecto | Ruta local |
+|---|---|
+| Sitio web público | `/Users/manu/_PROYECTOS/delahoguera/atrancas-public-sitev2` |
+| Dashboard analítica | `/Users/manu/_PROYECTOS/delahoguera/atrancas-dashboard-analitica` |
+
 ## Environment variables
 
 | Variable | Used in |
