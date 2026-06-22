@@ -69,14 +69,6 @@ export default async function RootLayout({
 
   return (
     <html lang="es" className={inter.variable}>
-      <head>
-        {/* eslint-disable-next-line @next/next/no-before-interactive-script-component */}
-        <script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="+HTWYOWCivkjpNm0PAp5GQ"
-          async
-        />
-      </head>
       <body className="overflow-x-hidden antialiased">
         <Analytics />
         <script
