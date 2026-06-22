@@ -1,17 +1,27 @@
-# Allow all crawlers
+# ============================================================
+# robots.txt — atrancas.cl
+# Controls crawl access for search engines and AI crawlers.
+# Does NOT control indexing — use noindex meta tags for that.
+# ============================================================
+
+# --- All crawlers ---
+# Allow the full site. Block only low-value or internal paths
+# to preserve crawl budget for content pages.
+# NOTE: /_next/ is intentionally NOT blocked — Googlebot needs
+# those JS/CSS assets to render pages correctly.
 User-agent: *
 Allow: /
-
-# Sitemap location
-Sitemap: https://www.atrancas.cl/sitemap.xml
-
-# Disallow admin and api routes
-Disallow: /api/
 Disallow: /admin/
-Disallow: /_next/
 Disallow: /slice-simulator
+# Block specific non-rendering API routes only
+Disallow: /api/preview
+Disallow: /api/exit-preview
+Disallow: /api/revalidate
 
-# AI Search Crawlers — explicitly allowed
+# --- AI training crawlers — explicitly allowed ---
+# Allow AI crawlers to index and reference site content.
+# Remove or flip to Disallow: / if you want to opt out of
+# AI training data collection.
 User-agent: GPTBot
 Allow: /
 
@@ -21,8 +31,11 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: anthropic-ai
-Allow: /
+# --- Sitemap ---
+Sitemap: https://www.atrancas.cl/sitemap.xml
