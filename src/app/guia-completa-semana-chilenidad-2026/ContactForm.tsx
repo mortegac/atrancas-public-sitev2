@@ -41,7 +41,9 @@ export default function ContactForm() {
     setStatus('sending');
     try {
       await emailjs.send('service_0g33pau', 'template_scllte8', {
+        from_name: form.nombre,
         to_name: form.nombre,
+        to_email: form.email,
         to_phone: form.telefono,
         reply_to: form.email,
         message: `Solicitud Chilenidad 2026
@@ -49,7 +51,7 @@ Productos: ${form.productos.join(', ') || 'No especificado'}
 Fecha del evento: ${form.fecha || 'No especificada'}
 Número de personas: ${form.personas || 'No especificado'}
 Mensaje: ${form.mensaje}`,
-      });
+      }, 'Cj4ceUn7ty-EX0iuD');
       setStatus('success');
     } catch {
       setStatus('error');
