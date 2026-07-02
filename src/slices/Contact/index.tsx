@@ -1,5 +1,6 @@
 "use client";
 import { FC, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from 'next/link';
 import { type Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
@@ -52,19 +53,19 @@ const Contact: FC<ContactProps> = ({ slice }) => {
   const backgroundImage = slice?.primary?.backgroundimage;
   // const calltoactionlink = slice.primary.calltoactionlink;
 
+  const router = useRouter();
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const [emailStatus, setEmailStatus] = useState<null | 'success' | 'error'>(null);
+  const [emailStatus, setEmailStatus] = useState<null | 'error'>(null);
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data: any) => {
     setLoading(true);
     setEmailStatus(null);
-    console.log("email: ", data)
     try {
-      const templateParams:any = {
+      const templateParams: Record<string, string> = {
         from_name: data.nameForm,
         to_email: data.emailForm,
         to_name: data.nameForm,
@@ -72,24 +73,12 @@ const Contact: FC<ContactProps> = ({ slice }) => {
         message: data.messageForm,
         reply_to: data.emailForm,
       };
-      
-      await emailjs.send(
-        SERVICE,
-        TEMPLATE,
-        // process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        // process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        { ...templateParams },
-        process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
-      );
-      setEmailStatus('success');
+      await emailjs.send(SERVICE, TEMPLATE, templateParams, process.env.NEXT_PUBLIC_EMAILJS_USER_ID!);
       reset();
-
-      // Aquí ejecutas el evento de conversión de Google Ads
       if (typeof window !== "undefined" && typeof window.gtag === "function") {
-        window.gtag('event', 'conversion', {
-          'send_to': 'AW-808610482/h8JLCIyh2_YCELLVyYED'
-        });
+        window.gtag('event', 'conversion', { 'send_to': 'AW-808610482/h8JLCIyh2_YCELLVyYED' });
       }
+      router.push('/contacto/gracias');
     } catch (error) {
       setEmailStatus('error');
     } finally {
@@ -178,9 +167,6 @@ const Contact: FC<ContactProps> = ({ slice }) => {
                   >
                     {loading ? "Enviando..." : (slice?.primary?.calltoactiontext || "email Enviado")}
                   </button>
-                  {emailStatus === 'success' && (
-                    <p className="text-green-600 mt-2">¡Mensaje enviado correctamente!</p>
-                  )}
                   {emailStatus === 'error' && (
                     <p className="text-red-600 mt-2">Hubo un error al enviar el mensaje. Intenta nuevamente.</p>
                   )}
