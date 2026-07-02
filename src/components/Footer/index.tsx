@@ -177,8 +177,7 @@ const Footer = () => {
                       className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                     >
                       <Link
-                        href="nuestra-empresa33"
-                        rel="noopener noreferrer" 
+                        href="/nuestra-empresa"
                         className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                       >
                        Nuestra Empresa
@@ -189,8 +188,7 @@ const Footer = () => {
                       className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                     >
                       <Link
-                        href="catalogo"
-                        rel="noopener noreferrer" 
+                        href="/catalogo"
                         className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                       >
                        Catálogo
@@ -216,8 +214,7 @@ const Footer = () => {
                       className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                     >
                       <Link
-                        href="/contact"
-                        rel="noopener noreferrer"
+                        href="/contacto"
                         className={`text-slate-100 flex duration-200 ease-out hover:text-white`}
                       >
                        Contacto

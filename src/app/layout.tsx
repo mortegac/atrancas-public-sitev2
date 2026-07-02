@@ -69,6 +69,12 @@ export default async function RootLayout({
 
   return (
     <html lang="es" className={inter.variable}>
+      <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://images.prismic.io" />
+        <link rel="dns-prefetch" href="https://api.emailjs.com" />
+      </head>
       <body className="overflow-x-hidden antialiased">
         <Analytics />
         <script
