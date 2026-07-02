@@ -17,6 +17,17 @@ const CAMPAIGNS = [
 const LANDINGS = [
   { title: 'Mesones, Buffet y Barras', url: '/landing/mesones-barras' },
   { title: 'Arriendo de Mesones para Eventos', url: '/arriendo-de-mesones-para-eventos' },
+  { title: 'Preguntas Frecuentes', url: '/preguntas-frecuentes' },
+];
+
+const CATALOGO = [
+  { title: 'Catálogo General', url: '/catalogo' },
+  { title: 'Complementarios', url: '/complementarios' },
+  { title: 'Complementarios Asados', url: '/complementarios-asados' },
+  { title: 'Ambientación Exterior', url: '/ambientacion-exterior' },
+  { title: 'Rincones Campestres', url: '/rincones-campestres' },
+  { title: 'Buffet, Mesones y Barras', url: '/buffet-mesones-y-barras' },
+  { title: 'Lounges', url: '/lounges' },
 ];
 
 function SitemapColumn({
@@ -73,8 +84,9 @@ export default async function SitemapPage() {
 
       {/* Grid */}
       <div className="mx-auto max-w-5xl px-6 py-16">
-        <div className="grid gap-14 md:grid-cols-3">
+        <div className="grid gap-14 md:grid-cols-4">
           <SitemapColumn heading="Páginas del Sitio" links={prismicPages} />
+          <SitemapColumn heading="Catálogo" links={CATALOGO} />
           <SitemapColumn heading="Campañas" links={CAMPAIGNS} />
           <SitemapColumn heading="Landing Pages" links={LANDINGS} />
         </div>

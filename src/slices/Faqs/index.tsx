@@ -1,5 +1,6 @@
 'use client';
 import { FC } from "react";
+import Link from "next/link";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicRichText } from "@/components/PrismicRichText";
@@ -108,9 +109,9 @@ const Faqs: FC<FaqsProps> = ({ slice }) => {
                 </div>
                 <p className="text-center text-gray-600 text-base mt-9">
                   ¿Tienes más preguntas?{' '}
-                  <span className="cursor-pointer font-medium text-[#c39f77] underline ml-2">
+                  <Link href="/contacto" className="font-medium text-[#c39f77] underline ml-2">
                     Contáctanos
-                  </span>
+                  </Link>
                 </p>
               </div>
             </section>
