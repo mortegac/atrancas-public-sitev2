@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { asText } from '@prismicio/client';
 import { createClient } from '@/prismicio';
+import { COMUNAS } from '@/app/arriendo-de-mesones-para-eventos/[comuna]/comunas-data';
 
 export const metadata: Metadata = {
   title: 'Mapa del Sitio',
@@ -9,14 +10,43 @@ export const metadata: Metadata = {
   alternates: { canonical: '/sitemap' },
 };
 
-const staticRoutes = [
-  {
-    category: 'Campaña Fiestas Patrias',
-    pages: [
-      { title: 'Guía Completa Semana de la Chilenidad 2026', url: '/guia-completa-semana-chilenidad-2026', description: 'Guía oficial XXIX Semana de la Chilenidad 2026: fechas, programa, calendario y arriendo de decoración campestre en Santiago.' },
-    ],
-  },
+const CAMPAIGNS = [
+  { title: 'Guía Chilenidad 2026', url: '/guia-completa-semana-chilenidad-2026' },
 ];
+
+const LANDINGS = [
+  { title: 'Mesones, Buffet y Barras', url: '/landing/mesones-barras' },
+  { title: 'Arriendo de Mesones para Eventos', url: '/arriendo-de-mesones-para-eventos' },
+];
+
+function SitemapColumn({
+  heading,
+  links,
+}: {
+  heading: string;
+  links: { title: string; url: string }[];
+}) {
+  return (
+    <div>
+      <h2 className="mb-6 border-l-4 border-[#c39f77] pl-4 text-sm font-bold uppercase tracking-widest text-gray-900">
+        {heading}
+      </h2>
+      <ul className="space-y-3">
+        {links.map((link) => (
+          <li key={link.url}>
+            <Link
+              href={link.url}
+              className="group flex items-center gap-2 text-base text-[#c39f77] transition hover:opacity-70"
+            >
+              <span className="transition group-hover:translate-x-0.5">→</span>
+              {link.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default async function SitemapPage() {
   const client = createClient();
@@ -25,87 +55,54 @@ export default async function SitemapPage() {
   const prismicPages = pages.map((page) => ({
     title: asText(page.data.title) || page.uid,
     url: `/${page.uid === 'home' ? '' : page.uid}`,
-    description: page.data.meta_description ?? '',
-    lastModified: page.last_publication_date
-      ? new Date(page.last_publication_date).toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' })
-      : null,
   }));
 
   return (
-    <main className="min-h-screen bg-white py-16 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Mapa del Sitio</h1>
-        <p className="text-lg text-gray-600 mb-12">
-          Índice completo de todas las páginas de Atrancas.
-        </p>
-
-        {/* Prismic pages */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 border-b border-gray-200 pb-3">
-            Páginas del Sitio
-          </h2>
-          <ul className="space-y-4">
-            {prismicPages.map((page) => (
-              <li key={page.url} className="flex flex-col sm:flex-row sm:items-start gap-2">
-                <div className="flex-1">
-                  <Link
-                    href={page.url}
-                    className="text-lg font-medium text-[#c39f77] hover:underline"
-                  >
-                    {page.title}
-                  </Link>
-                  {page.description && (
-                    <p className="text-sm text-gray-500 mt-1">{page.description}</p>
-                  )}
-                </div>
-                {page.lastModified && (
-                  <span className="text-xs text-gray-400 whitespace-nowrap mt-1">
-                    {page.lastModified}
-                  </span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Static/campaign pages */}
-        {staticRoutes.map((section) => (
-          <section key={section.category} className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-6 border-b border-gray-200 pb-3">
-              {section.category}
-            </h2>
-            <ul className="space-y-4">
-              {section.pages.map((page) => (
-                <li key={page.url} className="flex flex-col">
-                  <Link
-                    href={page.url}
-                    className="text-lg font-medium text-[#c39f77] hover:underline"
-                  >
-                    {page.title}
-                  </Link>
-                  {page.description && (
-                    <p className="text-sm text-gray-500 mt-1">{page.description}</p>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
-
-        {/* XML Sitemap link */}
-        <section className="mt-16 pt-8 border-t border-gray-100">
-          <p className="text-sm text-gray-400">
-            Sitemap XML para motores de búsqueda:{' '}
-            <a
-              href="/sitemap.xml"
-              className="text-[#c39f77] hover:underline"
-              target="_blank"
-              rel="noopener"
-            >
-              /sitemap.xml
-            </a>
+    <main className="min-h-screen bg-white">
+      {/* Header */}
+      <div className="bg-gray-50 px-6 py-14">
+        <div className="mx-auto max-w-5xl">
+          <h1 className="text-5xl font-bold text-gray-900 md:text-6xl">Mapa del Sitio</h1>
+          <p className="mt-3 text-base text-gray-500">
+            Encuentra cualquier página de Atrancas.
           </p>
-        </section>
+        </div>
+      </div>
+
+      <hr className="border-gray-200" />
+
+      {/* Grid */}
+      <div className="mx-auto max-w-5xl px-6 py-16">
+        <div className="grid gap-14 md:grid-cols-3">
+          <SitemapColumn heading="Páginas del Sitio" links={prismicPages} />
+          <SitemapColumn heading="Campañas" links={CAMPAIGNS} />
+          <SitemapColumn heading="Landing Pages" links={LANDINGS} />
+        </div>
+
+        {/* Comunas SEO */}
+        <div className="mt-14 border-t border-gray-100 pt-10">
+          <h2 className="mb-6 border-l-4 border-[#c39f77] pl-4 text-sm font-bold uppercase tracking-widest text-gray-900">
+            Arriendo por Comuna
+          </h2>
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5">
+            {COMUNAS.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/arriendo-de-mesones-para-eventos/${c.slug}`}
+                className="rounded-lg border border-gray-100 px-3 py-2 text-xs text-[#c39f77] transition hover:border-[#c39f77]/30 hover:bg-[#c39f77]/5"
+              >
+                {c.nombre}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <p className="mt-10 border-t border-gray-100 pt-8 text-xs text-gray-400">
+          Sitemap XML:{' '}
+          <a href="/sitemap.xml" className="text-[#c39f77] hover:underline" target="_blank" rel="noopener">
+            /sitemap.xml
+          </a>
+        </p>
       </div>
     </main>
   );
