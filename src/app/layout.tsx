@@ -79,6 +79,16 @@ export default async function RootLayout({
         <div className='isolate'>{children}</div>
         {process.env.NODE_ENV !== 'production' && <PrismicPreview repositoryName={repositoryName} />}
         <Footer/>
+        <a
+          className="wa__float"
+          href="https://wa.me/56997305358"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="Contactar por WhatsApp"
+        >
+          <div className="wa__float_txt">¿Necesitas Ayuda? <strong>Escríbenos</strong></div>
+          <div className="wa__float_icon" />
+        </a>
       </body>
     </html>
   );
